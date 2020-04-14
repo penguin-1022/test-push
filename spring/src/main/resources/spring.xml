@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:laf-config="http://ducc.jd.com/schema/laf-config"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://ducc.jd.com/schema/laf-config
+	    http://ducc.jd.com/schema/laf-config/laf-config.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--<context:property-placeholder location="local.properties" ignore-unresolvable="true"/>-->
+    <context:property-placeholder location="local.properties"/>
+
+    <context:annotation-config/>
+
+    <bean id="config" class="com.jd.laf.config.demo.spring.Config"/>
+    <bean id="configListener" class="com.jd.laf.config.demo.spring.ConfigListener"/>
+    <laf-config:manager id="configuratorManager" application="myapp_test">
+        <laf-config:parameter key="autoListener" value="false"/>
+        <laf-config:resource name="ucc_test"
+                             uri="ucc://item-base:ef90f60907cb4db887f5181b70fe7629@ducc.jd.local/v1/namespace/pmc_base/config/pmc_cache/profiles/product?longPolling=15000&amp;necessary=false"/>
+        <laf-config:listener-field key="k1" field="k1" beanName="config"/>
+    </laf-config:manager>
+</beans>
