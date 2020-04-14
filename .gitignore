@@ -6,5 +6,5 @@ target/**
 .settings/**
 .idea
 .idea/**
-.vertx
+
 *.iml
