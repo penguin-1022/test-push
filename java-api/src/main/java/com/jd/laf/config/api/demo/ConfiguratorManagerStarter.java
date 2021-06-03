@@ -15,7 +15,7 @@ public class ConfiguratorManagerStarter {
     public static void main(String args[]) throws Exception {
         String appName = "myapp_test" ;
         //resource uri format => ucc://{app_name}:{token}@{domain}:{port}/v1/namespace/{namespace}/config/{configuration}/profiles/{profiles}?longPolling=60000&necessary=false
-        String uri = "ucc://myapp_test:0bb15faf-a36d-40cd-9a93-88074eb920b0@ducc.jd.local/v1/namespace/ducc_admin/config/admin/profiles/common?longPolling=60000&necessary=false" ;
+        String uri = "ucc://myapp_test:0bb15faf-a36d-40cd-9a93-88074eb920b0@test.ducc.jd.local/v1/namespace/ducc_admin/config/admin/profiles/common?longPolling=60000&necessary=false" ;
         //创建ConfiguratorManager 实例
         ConfiguratorManager configuratorManager = ConfiguratorManager.getInstance() ;
         //设置appName，jone或者jdos部署可自动获取，无需配置
