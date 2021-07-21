@@ -19,6 +19,7 @@
         <laf-config:parameter key="autoListener" value="false"/>
         <laf-config:resource name="ucc_test"
                              uri="ucc://item-base:ef90f60907cb4db887f5181b70fe7629@test.ducc.jd.local/v1/namespace/pmc_base/config/pmc_cache/profiles/product?longPolling=15000&amp;necessary=false"/>
+        <!-- 多个resource 可以继续在此配置，而非多个laf-config:mamager -->
         <laf-config:listener-field key="k1" field="k1" beanName="config"/>
     </laf-config:manager>
 </beans>
