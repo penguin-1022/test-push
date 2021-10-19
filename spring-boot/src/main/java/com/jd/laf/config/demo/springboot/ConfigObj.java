@@ -1,5 +1,8 @@
 package com.jd.laf.config.demo.springboot;
 
+import com.jd.laf.binding.annotation.JsonConverter;
+import com.jd.laf.config.demo.springboot.bo.DateBean;
+import com.jd.laf.config.spring.annotation.LafValue;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +22,10 @@ public class ConfigObj {
 
     @Value("${conf.on:true}")
     private boolean safetySwitch ;
+
+    @LafValue("datebean")
+    @JsonConverter
+    private DateBean dateBean;
 
     public int getC1() {
         return c1;
@@ -52,12 +59,21 @@ public class ConfigObj {
         this.safetySwitch = safetySwitch;
     }
 
+    public DateBean getDateBean() {
+        return dateBean;
+    }
+
+    public void setDateBean(DateBean dateBean) {
+        this.dateBean = dateBean;
+    }
+
     @Override public String toString() {
         final StringBuilder sb = new StringBuilder("ConfigObj{");
         sb.append("c1=").append(c1);
         sb.append(", c2='").append(c2).append('\'');
         sb.append(", c3=").append(c3);
         sb.append(", safetySwitch=").append(safetySwitch);
+        sb.append(", dateBean=").append(dateBean);
         sb.append('}');
         return sb.toString();
     }
