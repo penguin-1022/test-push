@@ -6,6 +6,8 @@ import com.jd.laf.config.spring.annotation.LafValue;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * Created by bjliuyong on 2019/2/1.
  */
@@ -26,6 +28,10 @@ public class ConfigObj {
     @LafValue("datebean")
     @JsonConverter
     private DateBean dateBean;
+
+    @LafValue("datebean.list")
+    @JsonConverter
+    private List<DateBean> dateBeanList;
 
     public int getC1() {
         return c1;
@@ -67,6 +73,14 @@ public class ConfigObj {
         this.dateBean = dateBean;
     }
 
+    public List<DateBean> getDateBeanList() {
+        return dateBeanList;
+    }
+
+    public void setDateBeanList(List<DateBean> dateBeanList) {
+        this.dateBeanList = dateBeanList;
+    }
+
     @Override public String toString() {
         final StringBuilder sb = new StringBuilder("ConfigObj{");
         sb.append("c1=").append(c1);
@@ -74,6 +88,7 @@ public class ConfigObj {
         sb.append(", c3=").append(c3);
         sb.append(", safetySwitch=").append(safetySwitch);
         sb.append(", dateBean=").append(dateBean);
+        sb.append(", dateBeanList=").append(dateBeanList);
         sb.append('}');
         return sb.toString();
     }
