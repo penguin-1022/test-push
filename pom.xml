@@ -21,6 +21,7 @@
         <module>java-api</module>
         <module>spring</module>
         <module>spring-boot</module>
+        <module>spring-logback</module>
     </modules>
 
     <build>
