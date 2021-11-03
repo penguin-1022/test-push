@@ -8,8 +8,10 @@
 	    http://ducc.jd.com/schema/laf-config
 	    http://ducc.jd.com/schema/laf-config/laf-config.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--<context:property-placeholder location="local.properties" ignore-unresolvable="true"/>-->
-    <context:property-placeholder location="local.properties"/>
+    <!--<context:property-placeholder ignore-unresolvable="true" location="classpath:/local.properties,classpath:/application.properties"/>-->
+
+    <!-- 使用spring占位符时，例如ducc.uri，需要使用property-placeholder，详见wiki:https://git.jd.com/laf/laf-config/wikis/问题自排查-->
+    <context:property-placeholder location="classpath:/local.properties,classpath:/application.properties" ignore-unresolvable="true"/>
 
     <context:annotation-config/>
 
@@ -17,8 +19,7 @@
     <bean id="configListener" class="com.jd.laf.config.demo.spring.ConfigListener"/>
     <laf-config:manager id="configuratorManager" application="myapp_test">
         <laf-config:parameter key="autoListener" value="false"/>
-        <laf-config:resource name="ucc_test"
-                             uri="ucc://item-base:ef90f60907cb4db887f5181b70fe7629@test.ducc.jd.local/v1/namespace/pmc_base/config/pmc_cache/profiles/product?longPolling=15000&amp;necessary=false"/>
+        <laf-config:resource name="ucc_test" uri="${ducc.uri}"/>
         <!-- 多个resource 可以继续在此配置，而非多个laf-config:mamager -->
         <laf-config:listener-field key="k1" field="k1" beanName="config"/>
     </laf-config:manager>
