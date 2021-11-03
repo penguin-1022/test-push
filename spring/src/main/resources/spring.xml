@@ -8,9 +8,11 @@
 	    http://ducc.jd.com/schema/laf-config
 	    http://ducc.jd.com/schema/laf-config/laf-config.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--<context:property-placeholder location="local.properties" ignore-unresolvable="true"/>-->
+
+    <!--<context:property-placeholder ignore-unresolvable="true" location="classpath:/local.properties,classpath:/application.properties"/>-->
+
     <!-- 使用spring占位符时，例如ducc.uri，需要使用property-placeholder，详见wiki:https://git.jd.com/laf/laf-config/wikis/问题自排查-->
-    <context:property-placeholder location="local.properties,application.properties"/>
+    <context:property-placeholder location="classpath:/local.properties,classpath:/application.properties" ignore-unresolvable="true"/>
 
     <context:annotation-config/>
 
