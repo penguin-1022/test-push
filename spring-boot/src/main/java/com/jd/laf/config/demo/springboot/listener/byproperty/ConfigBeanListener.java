@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 public class ConfigBeanListener {
 
     private String c1;
+    protected String propertyStr;
 
     public String getName() {
         return "admin";
@@ -30,6 +31,7 @@ public class ConfigBeanListener {
 
     public void onUpdate(Property property) {
         System.out.println("onUpdate: " + property);
+        propertyStr = property.toString();
     }
 
     public String getC1() {
@@ -48,6 +50,7 @@ public class ConfigBeanListener {
     public String toString() {
         return "ConfigBeanListener{" +
                 "c1='" + c1 + '\'' +
+                ", propertyStr='" + propertyStr + '\'' +
                 '}';
     }
 }
