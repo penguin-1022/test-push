@@ -8,9 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class SpringUsage {
 
     public static void main(String args[]) throws Exception {
-        ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(
-                "/spring.xml");
-
+        ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("/spring.xml");
         Config config = appContext.getBean(Config.class) ;
         while (true) {
             Thread.sleep(2000);
