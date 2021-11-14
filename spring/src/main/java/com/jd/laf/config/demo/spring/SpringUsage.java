@@ -14,7 +14,7 @@ public class SpringUsage {
         Config config = appContext.getBean(Config.class) ;
         while (true) {
             Thread.sleep(2000);
-            //System.out.println(config);
+            System.out.println(config);
         }
     }
 }

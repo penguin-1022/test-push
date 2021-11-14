@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:laf-config="http://ducc.jd.com/schema/laf-config"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://ducc.jd.com/schema/laf-config
+	    http://ducc.jd.com/schema/laf-config/laf-config.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.jd.laf"/>
+
+
+    <laf-config:manager id="configuratorManager" application="myapp_test">
+        <laf-config:parameter key="autoListener" value="false"/>
+        <laf-config:resource name="ucc_test"
+                             uri="ucc://myapp_test:d0f25b9bc3674e989cd61d5e06396f95@test.ducc.jd.local/v1/namespace/ducc_admin/config/admin/profiles/log?longPolling=15000"/>
+        <!-- 多个resource 可以继续在此配置，而非多个laf-config:mamager -->
+
+        <!-- ducc管理端设置,key是：logger.level value是：ROOT=DEBUG ,配置后进行发布-->
+        <!-- logback -->
+        <laf-config:listener-script key="logger.level" script="script/logback.js"/>
+        <!-- log4j -->
+        <!--<laf-config:listener-script key="logger.level" script="script/log4j.js"/>-->
+        <!-- log4j2 -->
+       <!-- <laf-config:listener-script key="logger.level" script="script/log4j2.js"/>-->
+    </laf-config:manager>
+</beans>
