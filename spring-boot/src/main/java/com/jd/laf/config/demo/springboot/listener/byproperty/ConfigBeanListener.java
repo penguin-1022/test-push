@@ -1,4 +1,4 @@
-package com.jd.laf.config.demo.springboot.listener;
+package com.jd.laf.config.demo.springboot.listener.byproperty;
 
 import com.jd.laf.config.Property;
 import com.jd.laf.config.listener.PropertyListener;
@@ -15,10 +15,22 @@ import org.springframework.stereotype.Component;
  * @date 2021/11/12
  * @since todo
  */
-@Component("demoPropertyListener")
-public class DemoPropertyListener {
+@Component("configBeanListener")
+public class ConfigBeanListener {
 
     private String c1;
+
+    public String getName() {
+        return "admin";
+    }
+
+    public String getKey() {
+        return "conf.c1";
+    }
+
+    public void onUpdate(Property property) {
+        System.out.println("onUpdate: " + property);
+    }
 
     public String getC1() {
         return c1;
@@ -34,7 +46,7 @@ public class DemoPropertyListener {
 
     @Override
     public String toString() {
-        return "DemoPropertyListener{" +
+        return "ConfigBeanListener{" +
                 "c1='" + c1 + '\'' +
                 '}';
     }

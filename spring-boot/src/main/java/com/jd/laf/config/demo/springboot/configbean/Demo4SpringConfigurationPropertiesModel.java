@@ -8,6 +8,8 @@ package com.jd.laf.config.demo.springboot.configbean;
  * @see {@link org.springframework.boot.context.properties.ConfigurationProperties}
  *
  * Created by bjliuyong on 2018/11/26.
+ * @author <a href=mailto:yangzhiwei@jd.com>cf</a>
+ *
  */
 public class Demo4SpringConfigurationPropertiesModel {
 
