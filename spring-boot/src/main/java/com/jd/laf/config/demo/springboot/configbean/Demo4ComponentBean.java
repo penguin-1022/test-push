@@ -1,4 +1,4 @@
-package com.jd.laf.config.demo.springboot;
+package com.jd.laf.config.demo.springboot.configbean;
 
 import com.jd.laf.binding.annotation.JsonConverter;
 import com.jd.laf.config.demo.springboot.bo.DateBean;
@@ -9,10 +9,11 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
+ * 在 spring boot 下，普通 spring bean 场景
  * Created by bjliuyong on 2019/2/1.
  */
 @Component
-public class ConfigObj {
+public class Demo4ComponentBean {
 
     @Value("${conf.c1:1}")
     private int c1 ;
@@ -81,15 +82,15 @@ public class ConfigObj {
         this.dateBeanList = dateBeanList;
     }
 
-    @Override public String toString() {
-        final StringBuilder sb = new StringBuilder("ConfigObj{");
-        sb.append("c1=").append(c1);
-        sb.append(", c2='").append(c2).append('\'');
-        sb.append(", c3=").append(c3);
-        sb.append(", safetySwitch=").append(safetySwitch);
-        sb.append(", dateBean=").append(dateBean);
-        sb.append(", dateBeanList=").append(dateBeanList);
-        sb.append('}');
-        return sb.toString();
+    @Override
+    public String toString() {
+        return "Demo4ComponentBean{" +
+                "c1=" + c1 +
+                ", c2='" + c2 + '\'' +
+                ", c3=" + c3 +
+                ", safetySwitch=" + safetySwitch +
+                ", dateBean=" + dateBean +
+                ", dateBeanList=" + dateBeanList +
+                '}';
     }
 }

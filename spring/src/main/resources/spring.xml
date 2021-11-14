@@ -5,8 +5,8 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-	    http://ducc.jd.com/schema/laf-config
-	    http://ducc.jd.com/schema/laf-config/laf-config.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	    http://ducc.jd.com/schema/laf-config http://ducc.jd.com/schema/laf-config/laf-config.xsd
+	    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--<context:property-placeholder location="local.properties" ignore-unresolvable="true"/>-->
     <context:property-placeholder location="local.properties"/>

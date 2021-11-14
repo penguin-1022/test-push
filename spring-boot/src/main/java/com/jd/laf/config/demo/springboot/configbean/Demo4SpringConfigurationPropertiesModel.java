@@ -1,24 +1,28 @@
-package com.jd.laf.config.demo.springboot;
-
+package com.jd.laf.config.demo.springboot.configbean;
 
 /**
+ * 在 spring boot 环境下，ducc 结合 {@link org.springframework.boot.context.properties.ConfigurationProperties} 的示例.
+ *
+ * 这个 {@link Demo4SpringConfigurationPropertiesModel} 类的 Bean 对象创建，在 {@link com.jd.laf.config.demo.springboot.configbean}
+ *
+ * @see {@link org.springframework.boot.context.properties.ConfigurationProperties}
+ *
  * Created by bjliuyong on 2018/11/26.
  */
-public class Config {
+public class Demo4SpringConfigurationPropertiesModel {
 
     private int c1 ;
     private String c2 ;
     private double c3 ;
-
     private boolean on ;
 
     @Override
     public String toString() {
-        return "Config{" +
+        return "Demo4SpringConfigurationPropertiesModel{" +
                 "c1=" + c1 +
                 ", c2='" + c2 + '\'' +
                 ", c3=" + c3 +
-                ", on='" + on + '\'' +
+                ", on=" + on +
                 '}';
     }
 
