@@ -38,6 +38,7 @@ public class SpringBootStarter  {
             while (true) {
                 System.out.println("通过 spring boot @ConfigurationProperties 注解定义的 ducc 配置类： " + demo4SpringConfigurationPropertiesModel);
                 System.out.println("通过 @Component 注解定义的 ducc 配置类： " + demo4ComponentBean);
+                System.out.println("通过 @Component 注解定义的 ducc 配置类： " + demo4ComponentBean.getDateBeanList());
                 System.out.println("通过 application.properties 配置的 ducc 配置属性监听器： " + configBeanListener);
                 System.out.println("通过集成 ducc PropertyListener 接口，实现的配置属性监听器： " + propertyListener);
                 Thread.sleep(2000L);

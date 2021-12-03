@@ -34,6 +34,9 @@ public class Demo4ComponentBean {
     @JsonConverter
     private List<DateBean> dateBeanList;
 
+    @LafValue("number.list")
+    private List<Integer> numbers;
+
     public int getC1() {
         return c1;
     }
@@ -82,6 +85,14 @@ public class Demo4ComponentBean {
         this.dateBeanList = dateBeanList;
     }
 
+    public List<Integer> getNumbers() {
+        return numbers;
+    }
+
+    public void setNumbers(List<Integer> numbers) {
+        this.numbers = numbers;
+    }
+
     @Override
     public String toString() {
         return "Demo4ComponentBean{" +
@@ -91,6 +102,7 @@ public class Demo4ComponentBean {
                 ", safetySwitch=" + safetySwitch +
                 ", dateBean=" + dateBean +
                 ", dateBeanList=" + dateBeanList +
+                ", numbers=" + numbers +
                 '}';
     }
 }
