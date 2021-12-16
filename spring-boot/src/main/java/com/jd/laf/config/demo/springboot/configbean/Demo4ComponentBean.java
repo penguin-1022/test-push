@@ -37,6 +37,9 @@ public class Demo4ComponentBean {
     @LafValue("number.list")
     private List<Integer> numbers;
 
+    @Value("${password}")
+    private String password;
+
     public int getC1() {
         return c1;
     }
@@ -93,6 +96,14 @@ public class Demo4ComponentBean {
         this.numbers = numbers;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "Demo4ComponentBean{" +
@@ -103,6 +114,7 @@ public class Demo4ComponentBean {
                 ", dateBean=" + dateBean +
                 ", dateBeanList=" + dateBeanList +
                 ", numbers=" + numbers +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

@@ -17,6 +17,7 @@ public class Demo4SpringConfigurationPropertiesModel {
     private String c2 ;
     private double c3 ;
     private boolean on ;
+    private String password;
 
     @Override
     public String toString() {
@@ -25,6 +26,7 @@ public class Demo4SpringConfigurationPropertiesModel {
                 ", c2='" + c2 + '\'' +
                 ", c3=" + c3 +
                 ", on=" + on +
+                ", password='" + password + '\'' +
                 '}';
     }
 
@@ -58,5 +60,13 @@ public class Demo4SpringConfigurationPropertiesModel {
 
     public void setOn(boolean on) {
         this.on = on;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
