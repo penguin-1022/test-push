@@ -37,7 +37,7 @@ public class Demo4ComponentBean {
     @LafValue("number.list")
     private List<Integer> numbers;
 
-    @Value("${password}")
+    @Value("${password:qwerasdf}")
     private String password;
 
     public int getC1() {
