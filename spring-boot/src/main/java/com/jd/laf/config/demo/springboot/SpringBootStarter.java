@@ -32,8 +32,7 @@ public class SpringBootStarter  {
             Demo4ComponentBean demo4ComponentBean = applicationContext.getBean(Demo4ComponentBean.class);
             ConfigBeanListener configBeanListener = applicationContext.getBean(ConfigBeanListener.class);
 
-            DemoPropertyListener propertyListener =
-                    applicationContext.getBean(DemoPropertyListener.class);
+            DemoPropertyListener propertyListener = applicationContext.getBean(DemoPropertyListener.class);
 
             while (true) {
                 System.out.println("通过 spring boot @ConfigurationProperties 注解定义的 ducc 配置类： " + demo4SpringConfigurationPropertiesModel);
