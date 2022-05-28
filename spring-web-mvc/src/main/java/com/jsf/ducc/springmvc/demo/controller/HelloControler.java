@@ -1,7 +1,7 @@
 package com.jsf.ducc.springmvc.demo.controller;
 
-import com.jsf.ducc.springmvc.demo.beans.DuccBean;
-import com.jsf.ducc.springmvc.demo.beans.User;
+import com.jd.laf.config.demo.common.beans.DuccBean;
+import com.jd.laf.config.demo.common.beans.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

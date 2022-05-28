@@ -12,6 +12,12 @@
     <artifactId>spring</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>ducc.demo</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- 如果需要使用spring 可以引用此依赖-->
         <dependency>
             <groupId>com.jd.laf.config</groupId>

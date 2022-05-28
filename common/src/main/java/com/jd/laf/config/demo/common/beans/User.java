@@ -1,4 +1,4 @@
-package com.jsf.ducc.springmvc.demo.beans;
+package com.jd.laf.config.demo.common.beans;
 
 /**
  * Title: 普通 spring bean. <br>

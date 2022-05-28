@@ -1,4 +1,4 @@
-package com.jsf.ducc.springmvc.demo.listener;
+package com.jd.laf.config.demo.common.listener;
 
 import com.jd.laf.config.Configuration;
 import com.jd.laf.config.Property;
