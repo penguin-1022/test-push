@@ -8,16 +8,13 @@
 	    http://ducc.jd.com/schema/laf-config http://ducc.jd.com/schema/laf-config/laf-config.xsd
 	    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="duccBean" class="com.jd.laf.config.demo.spring.beans.DuccBean" />
+    <bean id="configListener" class="com.jd.laf.config.demo.spring.listener.ConfigListener"/>
 
-    <!-- 使用 spring 占位符时，例如 ducc.uri，需要使用 property-placeholder，
-    详见 FAQ: https://cf.jd.com/display/JSF/FAQ (1. 配置未能实时获取，如何自行排查) -->
-    <context:property-placeholder location="classpath:/*.properties" ignore-unresolvable="true"/>
-
-    <import resource="classpath:spring-ducc.xml"/>
-    <import resource="classpath:spring-other.xml"/>
-
-    <context:annotation-config/>
-
+    <laf-config:manager id="configuratorManager" application="myapp_test">
+        <laf-config:parameter key="autoListener" value="false"/>
+        <laf-config:resource name="ucc_test" uri="${ducc.uri}"/>
+        <!-- 多个resource 可以继续在此配置，而非多个laf-config:mamager -->
+        <laf-config:listener-field key="k1" field="k1" beanName="config"/>
+    </laf-config:manager>
 
 </beans>

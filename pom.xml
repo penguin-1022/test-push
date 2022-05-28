@@ -23,6 +23,7 @@
         <module>spring-boot</module>
         <module>spring-logback</module>
         <module>static-config</module>
+        <module>spring-web-mvc</module>
     </modules>
 
     <build>

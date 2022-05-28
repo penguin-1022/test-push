@@ -45,7 +45,7 @@ public class ConfiguratorManagerStarter {
         System.out.println("jdbc.url:" + property2.getString());
 
         //获取配置 方式3 (获取指定配置源下配置集合)
-        Configuration configuraiton = configuratorManager.getConfiguration(resourceName);
+        final Configuration configuraiton = configuratorManager.getConfiguration(resourceName);
         System.out.println("ucc configuration:" + configuraiton);
         System.out.println("jdbc.url:" + configuraiton.getProperty("jdbc.url").getString());
 

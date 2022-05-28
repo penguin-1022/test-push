@@ -1,18 +1,22 @@
 package com.jd.laf.config.demo.spring;
 
+import com.jd.laf.config.demo.spring.beans.DuccBean;
+import com.jd.laf.config.demo.spring.beans.User;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by bjliuyong on 2018/11/26.
  */
-public class SpringUsage {
+public class SpringUsageMain {
 
     public static void main(String args[]) throws Exception {
         ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("/spring.xml");
-        Config config = appContext.getBean(Config.class) ;
+        DuccBean duccBean = appContext.getBean(DuccBean.class) ;
+        User user = appContext.getBean(User.class);
         while (true) {
             Thread.sleep(2000);
-            System.out.println(config);
+            System.out.println(duccBean);
+            System.out.println(user);
         }
     }
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:laf-config="http://ducc.jd.com/schema/laf-config"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://ducc.jd.com/schema/laf-config http://ducc.jd.com/schema/laf-config/laf-config.xsd
+	    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="duccBean" class="com.jsf.ducc.springmvc.demo.beans.DuccBean"/>
+
+    <import resource="classpath:/spring-other.xml"/>
+<!--    <import resource="classpath:/spring-ducc.xml"/>-->
+
+    <bean id="secApplicationProperties" class="com.jd.security.configsec.spring.config.JDSecurityPropertyFactoryBean">
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="secLocation" value="classpath:important.properties"/>
+    </bean>
+
+    <!-- 使用spring占位符时，例如 ducc.uri，需要使用 property-placeholder，详见wiki: https://git.jd.com/laf/laf-config/wikis/ 问题自排查-->
+<!--    <context:property-placeholder location="classpath:/*.properties" ignore-unresolvable="true"/>-->
+
+<!--    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+<!--        <property name="ignoreUnresolvablePlaceholders" value="true" />-->
+<!--        <property name="locations">-->
+<!--            <list>-->
+<!--                <value>classpath:application.properties</value>-->
+<!--                <value>classpath:local.properties</value>-->
+<!--                <value>classpath:important.properties</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:application.properties</value>
+                <value>classpath:local.properties</value>
+                <value>classpath:important.properties</value>
+            </list>
+        </property>
+        <property name="properties" ref="secApplicationProperties"/>
+    </bean>
+
+
+
+    <context:annotation-config/>
+
+</beans>
