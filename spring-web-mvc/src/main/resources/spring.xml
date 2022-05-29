@@ -17,5 +17,6 @@
     <context:annotation-config/>
 
     <import resource="classpath:/spring-other.xml"/>
+    <!--最佳实践：将 ducc 配置放在最后 -->
     <import resource="classpath:/spring-ducc.xml"/>
 </beans>
