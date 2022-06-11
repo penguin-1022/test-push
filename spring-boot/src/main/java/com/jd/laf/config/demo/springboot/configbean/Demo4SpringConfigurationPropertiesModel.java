@@ -1,5 +1,7 @@
 package com.jd.laf.config.demo.springboot.configbean;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
 /**
  * 在 spring boot 环境下，ducc 结合 {@link org.springframework.boot.context.properties.ConfigurationProperties} 的示例.
  *
@@ -11,6 +13,7 @@ package com.jd.laf.config.demo.springboot.configbean;
  * @author <a href=mailto:yangzhiwei@jd.com>cf</a>
  *
  */
+@ConfigurationProperties(prefix = "conf")
 public class Demo4SpringConfigurationPropertiesModel {
 
     private int c1 ;

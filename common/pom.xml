@@ -26,6 +26,7 @@
             <groupId>com.jd.laf.config</groupId>
             <artifactId>laf-config-client-jd-spring</artifactId>
             <version>${ducc.client.version}</version>
+            <type>pom</type>
             <scope>provided</scope>
         </dependency>
 
