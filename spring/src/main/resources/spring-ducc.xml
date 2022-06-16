@@ -17,10 +17,10 @@
         name 表示资源名称，ducc 要求 这个 name 进程内唯一；
         uri 是配置定位，可以在 ducc 管理端-配置页面上，点击按钮生成这个 uri 的模板，然后把 appName 和 token 修改成实际值即可；
         -->
-        <laf-config:resource name="ucc_test" uri=
-                "ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/config1/profiles/profile1?longPolling=60000&amp;necessary=true" />
+<!--        <laf-config:resource name="ucc_test" uri=-->
+<!--                "ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/config1/profiles/profile1?longPolling=60000&amp;necessary=true" />-->
         <!-- 下面是使用占位符方式设置 uri -->
-<!--                <laf-config:resource name="ucc_test" uri="${ducc.uri}" />-->
+                <laf-config:resource name="ucc_test" uri="${ducc.uri}" />
         <laf-config:listener-field key="ducc_key4" field="duccConfig4" beanName="duccBean"/>
     </laf-config:manager>
 </beans>
