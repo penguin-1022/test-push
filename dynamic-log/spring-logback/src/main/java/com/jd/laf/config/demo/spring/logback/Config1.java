@@ -5,10 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Config {
-    private static final Logger logger = LoggerFactory.getLogger(Config.class);
+public class Config1 {
+    private static final Logger logger = LoggerFactory.getLogger(Config1.class);
 
-    public Config() {
+    public Config1() {
     }
 
     public void loggerLevel() {
@@ -16,5 +16,6 @@ public class Config {
         logger.info("2 info level.");
         logger.warn("3 warning level.");
         logger.error("4 error level.");
+        System.out.println("************************************************************");
     }
 }
