@@ -1,4 +1,4 @@
-package com.jd.laf.config.demo.springboot.listener.bybean;
+package com.jd.laf.config.demo.springboot.listener.duccInterface;
 
 import com.jd.laf.config.Property;
 import com.jd.laf.config.listener.PropertyListener;
@@ -23,18 +23,19 @@ public class DemoPropertyListener implements PropertyListener {
     @Override
     public void onUpdate(Property property) {
         System.out.println("onUpdate, property: " + property);
-        str = property.toString();
+        str = (String) property.getValue();
     }
 
     @Override
     public String getName() {
-        //laf.config.manager.resources[x].name 对应的配置名称
+        //返回值是： laf.config.manager.resources[index].name 对应的配置名称
         return "myapp_test";
     }
 
     @Override
     public String getKey() {
-        return "bean.property.listener";
+        //返回值是： 某个 key
+        return "ducc_key1";
     }
 
     public String getStr() {

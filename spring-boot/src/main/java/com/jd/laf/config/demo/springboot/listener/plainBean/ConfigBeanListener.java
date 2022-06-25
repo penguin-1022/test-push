@@ -1,13 +1,13 @@
-package com.jd.laf.config.demo.springboot.listener.byproperty;
+package com.jd.laf.config.demo.springboot.listener.plainBean;
 
 import com.jd.laf.config.Property;
 import com.jd.laf.config.listener.PropertyListener;
 import org.springframework.stereotype.Component;
 
 /**
- * Title: todo <br>
+ * Title: 普通 bean 作为 ducc listener <br>
  * <p/>
- * Description: todo
+ * Description: 结合配置文件，可以使用一个未实现 DUCC {@link PropertyListener} 接口普通 bean 监听 ducc 配置。
  * <p>
  * company: <a href=www.jd.com>www.jd.com</a>
  *

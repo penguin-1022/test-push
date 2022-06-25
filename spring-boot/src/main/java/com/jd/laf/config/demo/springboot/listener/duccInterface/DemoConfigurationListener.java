@@ -1,4 +1,4 @@
-package com.jd.laf.config.demo.springboot.listener.bybean;
+package com.jd.laf.config.demo.springboot.listener.duccInterface;
 
 import com.jd.laf.config.Configuration;
 import com.jd.laf.config.listener.ConfigurationListener;
@@ -20,7 +20,7 @@ public class DemoConfigurationListener implements ConfigurationListener {
 
     @Override
     public String getName() {
-        //laf.config.manager.resources[x].name 对应的配置名称
+        //返回值是： laf.config.manager.resources[index].name 对应的配置名称
         return "myapp_test";
     }
 
