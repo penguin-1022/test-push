@@ -73,6 +73,46 @@ public class DuccBean {
     @LafValue(name = "ucc_test")
     private Configuration configuration;
 
+    public String getLocalConfig() {
+        return localConfig;
+    }
+
+    public void setLocalConfig(String localConfig) {
+        this.localConfig = localConfig;
+    }
+
+    public String getDuccConfig1() {
+        return duccConfig1;
+    }
+
+    public void setDuccConfig1(String duccConfig1) {
+        this.duccConfig1 = duccConfig1;
+    }
+
+    public String getDuccConfig2() {
+        return duccConfig2;
+    }
+
+    public void setDuccConfig2(String duccConfig2) {
+        this.duccConfig2 = duccConfig2;
+    }
+
+    public String getDuccConfig3() {
+        return duccConfig3;
+    }
+
+    public void setDuccConfig3(String duccConfig3) {
+        this.duccConfig3 = duccConfig3;
+    }
+
+    public String getDuccConfig4() {
+        return duccConfig4;
+    }
+
+    public void setDuccConfig4(String duccConfig4) {
+        this.duccConfig4 = duccConfig4;
+    }
+
     @Override
     public String toString() {
         return "DuccBean{" +
