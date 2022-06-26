@@ -1,4 +1,4 @@
-package com.jd.laf.config.demo.common.beans;
+package com.jd.laf.config.demo.common.bo;
 
 /**
  * Title: 普通 spring bean. <br>

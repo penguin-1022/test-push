@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class SystemProperties {
     @LafValue("sun.jnu.encoding")
     private String encoding;
-//    @LafValue("java.class.path")
+    @LafValue("java.class.path")
     private String classPath;
 
     public String getEncoding() {

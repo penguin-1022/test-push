@@ -2,6 +2,8 @@ package com.jd.laf.config.demo.springboot.listener.duccInterface;
 
 import com.jd.laf.config.Configuration;
 import com.jd.laf.config.listener.ConfigurationListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class DemoConfigurationListener implements ConfigurationListener {
+    private static Logger LOGGER = LoggerFactory.getLogger(DemoConfigurationListener.class);
 
     @Override
     public String getName() {
@@ -26,6 +29,6 @@ public class DemoConfigurationListener implements ConfigurationListener {
 
     @Override
     public void onUpdate(Configuration configuration) {
-        System.out.println("configuration: " + configuration);
+        LOGGER.info("configuration: " + configuration);
     }
 }

@@ -1,7 +1,7 @@
 package com.jd.laf.config.demo.spring;
 
 import com.jd.laf.config.demo.common.beans.DuccBean;
-import com.jd.laf.config.demo.common.beans.User;
+import com.jd.laf.config.demo.common.bo.User;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**

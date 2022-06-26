@@ -1,7 +1,7 @@
 package com.jd.laf.config.demo.springboot.configbean;
 
 import com.jd.laf.binding.annotation.JsonConverter;
-import com.jd.laf.config.demo.springboot.bo.DateBean;
+import com.jd.laf.config.demo.common.bo.DateBean;
 import com.jd.laf.config.spring.annotation.LafValue;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

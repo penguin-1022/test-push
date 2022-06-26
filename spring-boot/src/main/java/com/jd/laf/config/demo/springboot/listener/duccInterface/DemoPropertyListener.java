@@ -2,6 +2,8 @@ package com.jd.laf.config.demo.springboot.listener.duccInterface;
 
 import com.jd.laf.config.Property;
 import com.jd.laf.config.listener.PropertyListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,12 +19,13 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class DemoPropertyListener implements PropertyListener {
+    private static Logger LOGGER = LoggerFactory.getLogger(DemoPropertyListener.class);
 
     private String str;
 
     @Override
     public void onUpdate(Property property) {
-        System.out.println("onUpdate, property: " + property);
+        LOGGER.info("onUpdate, property: " + property);
         str = (String) property.getValue();
     }
 

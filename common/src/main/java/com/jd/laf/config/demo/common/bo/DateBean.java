@@ -1,4 +1,4 @@
-package com.jd.laf.config.demo.springboot.bo;
+package com.jd.laf.config.demo.common.bo;
 
 import java.util.Date;
 
