@@ -19,6 +19,9 @@ laf:
 #        测试环境
 #        uri: uri=ucc://ducc_admin:f9b07b88fcea4f2bbc4d82635808f9e9@test.ducc.jd.local/v1/namespace/ducc_demo/config/config1/profiles/profile1?longPolling=60000&necessary=true
 #        线上环境
-        uri: ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/config1/profiles/profile1?longPolling=60000&necessary=true
+        uri: ${app.ducc.uri}
 
+app:
+  ducc:
+    uri: ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/config1/profiles/profile1?longPolling=60000&necessary=true
 

@@ -1,4 +1,4 @@
-package com.jd.laf.config.demo.springboot;
+package com.jd.laf.config.demo.springboot.launchers.yaml;
 
 import com.jd.laf.binding.annotation.JsonConverter;
 import com.jd.laf.config.demo.common.beans.ComplexBean;
@@ -20,10 +20,10 @@ import java.util.List;
 /**
  * Created by bjliuyong on 2018/11/26.
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.jd.laf.config.demo.springboot.configbean", "com.jd.laf.config.demo.springboot.listener"})
 @PropertySource({"classpath:/local.properties"})
-public class SpringBootLauncher {
-    private static Logger LOGGER = LoggerFactory.getLogger(SpringBootLauncher.class);
+public class SimpleYamlLauncher {
+    private static Logger LOGGER = LoggerFactory.getLogger(SimpleYamlLauncher.class);
 
     @Bean
     @ConfigurationProperties(prefix = "config")
@@ -54,12 +54,13 @@ public class SpringBootLauncher {
 
     public static void main(String args[]) {
         try {
-            ConfigurableApplicationContext applicationContext = SpringApplication.run(SpringBootLauncher.class, args);
+            System.setProperty("spring.config.location", "classpath:/simple/yaml/");
+            ConfigurableApplicationContext applicationContext = SpringApplication.run(SimpleYamlLauncher.class, args);
 
             DuccPrefixBean duccPrefixBean = applicationContext.getBean("duccPrefixBean", DuccPrefixBean.class);
             DuccBean duccBean = applicationContext.getBean("duccBean", DuccBean.class);
             ComplexBean complexBean = applicationContext.getBean(ComplexBean.class);
-            SpringBootLauncher starter = applicationContext.getBean(SpringBootLauncher.class);
+            SimpleYamlLauncher starter = applicationContext.getBean(SimpleYamlLauncher.class);
 
             while (true) {
                 LOGGER.info("duccPrefixBean, hashCode: {} : {}", duccPrefixBean.hashCode(), duccPrefixBean);
