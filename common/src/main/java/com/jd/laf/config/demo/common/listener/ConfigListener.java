@@ -14,6 +14,15 @@ public class ConfigListener {
 
     /**
      * 指定key 即可 , key 维度监听器
+     *
+     * 注意：不能使用如下用法
+     * <p>
+     *     "@LafValue("${ducc_key1}")"
+     * </p>
+     * <p>
+     *     "@LafValue("${ducc_key1:value}")"
+     * </p>
+     *
      * @param property
      */
     @LafValue("ducc_key1")
