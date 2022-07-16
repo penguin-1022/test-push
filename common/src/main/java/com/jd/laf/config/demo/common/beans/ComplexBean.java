@@ -28,21 +28,60 @@ public class ComplexBean {
     @LafValue("complex.simpleValue")
     private String simpleValue;
 
+    /**
+     * json 反序列化，说明： <br>
+     *     {@link ComplexBean#user} 没有使用泛型，这里会转换成 {@link User} 对象.
+     */
     @LafValue("complex.user")
     @JsonConverter
     private User user;
 
+    /**
+     * json 反序列化，说明： <br>
+     *     {@link ComplexBean#userList} 使用了泛型，并且{@link JsonConverter#isSupportGeneric() = false (默认值)}, 因此这里会转换成 Json 对象. <br>
+     *     注： {@link JsonConverter#isSupportGeneric} 参数在 ducc sdk 1.2.0 及之后版本支持, 在 1.2.0 之前不支持泛型反序列化.
+     */
     @LafValue("complex.userList")
     @JsonConverter
     private List<User> userList;
 
+    /**
+     * json 反序列化，说明： <br>
+     *     {@link ComplexBean#userMap} 使用了泛型，并且{@link JsonConverter#isSupportGeneric() = false (默认值)}, 因此这里 Map 里面的 User 会转换成 Json 对象. <br>
+     *     注： {@link JsonConverter#isSupportGeneric} 参数在 ducc sdk 1.2.0 及之后版本支持, 在 1.2.0 之前不支持泛型反序列化.
+     */
     @LafValue("complex.userMap")
     @JsonConverter
     private Map<String, User> userMap;
 
+    /**
+     * json 反序列化，说明： 和 {@link ComplexBean#user} 类似.
+     */
     @LafValue("complex.dateBean")
     @JsonConverter
     private DateBean dateBean;
+
+    /**
+     * json 反序列化，说明： <br>
+     *     {@link ComplexBean#userMap} 使用了泛型，并且{@link JsonConverter#isSupportGeneric() = false (默认值)}, 因此这里 Map 里面的 List<User> 会转换成 Json 对象. <br>
+     *     注： {@link JsonConverter#isSupportGeneric} 参数在 ducc sdk 1.2.0 及之后版本支持, 在 1.2.0 之前不支持泛型反序列化.
+     */
+    @LafValue("complex.map.list")
+    @JsonConverter
+    private Map<String, List<User>> userMapList;
+
+    /**
+     * json 反序列化，说明： <br>
+     *     {@link ComplexBean#userMap} 使用了泛型，并且{@link JsonConverter#isSupportGeneric() = true }, 因此这里 Map 里面的 List<User> 会转换成 List 对象, List里面是 User 对象. <br>
+     *     注： {@link JsonConverter#isSupportGeneric} 参数在 ducc sdk 1.2.0 及之后版本支持, 在 1.2.0 之前不支持泛型反序列化.
+     */
+    @LafValue("complex.map.list")
+    @JsonConverter(isSupportGeneric = true)
+    private Map<String, List<User>> userMapList2;
+
+    private Map<String, List<User>> userMapList3;
+
+    private Map<String, List<User>> userMapList4;
 
     //inject at method
     private List<StdClass> classList;
@@ -101,6 +140,47 @@ public class ComplexBean {
         LOGGER.info("classList: {}", classList);
     }
 
+    public Map<String, List<User>> getUserMapList() {
+        return userMapList;
+    }
+
+    public void setUserMapList(Map<String, List<User>> userMapList) {
+        this.userMapList = userMapList;
+    }
+
+
+    public Map<String, List<User>> getUserMapList2() {
+        return userMapList2;
+    }
+
+    public void setUserMapList2(Map<String, List<User>> userMapList2) {
+        this.userMapList2 = userMapList2;
+    }
+
+    public Map<String, List<User>> getUserMapList3() {
+        return userMapList3;
+    }
+
+    /**
+     * json 反序列化，说明： 和 {@link ComplexBean#userMapList} 类似
+     */
+    @LafValue("complex.map.list")
+    public void setUserMapList3(@JsonConverter Map<String, List<User>> userMapList3) {
+        this.userMapList3 = userMapList3;
+    }
+
+    public Map<String, List<User>> getUserMapList4() {
+        return userMapList4;
+    }
+
+    /**
+     * json 反序列化，说明： 和 {@link ComplexBean#userMapList2} 类似
+     */
+    @LafValue("complex.map.list")
+    public void setUserMapList4(@JsonConverter(isSupportGeneric = true) Map<String, List<User>> userMapList4) {
+        this.userMapList4 = userMapList4;
+    }
+
     @Override
     public String toString() {
         return "ComplexBean{" +
@@ -109,6 +189,7 @@ public class ComplexBean {
                 ", userList=" + userList +
                 ", userMap=" + userMap +
                 ", dateBean=" + dateBean +
+                ", userMapList=" + userMapList +
                 ", classList=" + classList +
                 '}';
     }

@@ -2,11 +2,13 @@ package com.jd.laf.config.demo.springboot.configbean;
 
 import com.jd.laf.binding.annotation.JsonConverter;
 import com.jd.laf.config.demo.common.bo.DateBean;
+import com.jd.laf.config.demo.common.bo.User;
 import com.jd.laf.config.spring.annotation.LafValue;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 在 spring boot 下，普通 spring bean 场景
@@ -39,6 +41,10 @@ public class Demo4ComponentBean {
 
     @Value("${password:qwerasdf}")
     private String password;
+
+    @LafValue("user.map")
+    @JsonConverter
+    private Map<String, List<User>> userMap;
 
     public int getC1() {
         return c1;
@@ -104,6 +110,14 @@ public class Demo4ComponentBean {
         this.password = password;
     }
 
+    public Map<String, List<User>> getUserMap() {
+        return userMap;
+    }
+
+    public void setUserMap(Map<String, List<User>> userMap) {
+        this.userMap = userMap;
+    }
+
     @Override
     public String toString() {
         return "Demo4ComponentBean{" +
@@ -115,6 +129,7 @@ public class Demo4ComponentBean {
                 ", dateBeanList=" + dateBeanList +
                 ", numbers=" + numbers +
                 ", password='" + password + '\'' +
+                ", userMap=" + userMap +
                 '}';
     }
 }
