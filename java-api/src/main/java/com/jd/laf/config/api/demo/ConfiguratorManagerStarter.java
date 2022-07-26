@@ -6,13 +6,30 @@ import com.jd.laf.config.Property;
 import com.jd.laf.config.Resource;
 import com.jd.laf.config.listener.ConfigurationListener;
 import com.jd.laf.config.listener.PropertyListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by bjliuyong on 2018/12/18.
  */
 public class ConfiguratorManagerStarter {
 
+    private final static Logger logger = LoggerFactory.getLogger(ConfiguratorManagerStarter.class);
+
     public static void main(String args[]) throws Exception {
+
+        ConfiguratorManager configuratorManager = new ConfiguratorManagerStarter().ducc();
+
+        synchronized (ConfiguratorManagerStarter.class){
+            ConfiguratorManagerStarter.class.wait();
+        }
+
+        //java进程退出时，可进行关闭
+        configuratorManager.stop();
+
+    }
+
+    public ConfiguratorManager ducc() throws Exception {
         String appName = "myapp_test" ;
         //uri格式详解参见：https://git.jd.com/laf/laf-config/wikis/客户端使用指南->UCC配置服务
         //resource uri format => ucc://{app_name}:{token}@{domain}:{port}/v1/namespace/{namespace}/config/{configuration}/profiles/{profiles}?longPolling=60000&necessary=false
@@ -64,13 +81,6 @@ public class ConfiguratorManagerStarter {
                 System.out.println(configuration);
             }
         });
-
-        synchronized (configuraiton){
-            configuraiton.wait();
-        }
-
-        //java进程退出时，可进行关闭
-        configuratorManager.stop();
-
+        return configuratorManager;
     }
 }
