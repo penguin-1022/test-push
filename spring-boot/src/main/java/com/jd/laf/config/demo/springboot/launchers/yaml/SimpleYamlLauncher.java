@@ -4,6 +4,7 @@ import com.jd.laf.binding.annotation.JsonConverter;
 import com.jd.laf.config.demo.common.beans.ComplexBean;
 import com.jd.laf.config.demo.common.beans.DuccBean;
 import com.jd.laf.config.demo.common.beans.DuccPrefixBean;
+import com.jd.laf.config.demo.common.beans.MyBean1;
 import com.jd.laf.config.demo.common.bo.EndPoint;
 import com.jd.laf.config.spring.annotation.LafValue;
 import org.slf4j.Logger;
@@ -41,6 +42,9 @@ public class SimpleYamlLauncher {
         return new ComplexBean();
     }
 
+    @Bean
+    public MyBean1 myBean1() {return new MyBean1();};
+
     @LafValue("endpoints.array")
     public List<EndPoint> endpointListFromArray;
 
@@ -61,6 +65,7 @@ public class SimpleYamlLauncher {
             DuccBean duccBean = applicationContext.getBean("duccBean", DuccBean.class);
             ComplexBean complexBean = applicationContext.getBean(ComplexBean.class);
             SimpleYamlLauncher starter = applicationContext.getBean(SimpleYamlLauncher.class);
+            MyBean1 myBean1 = applicationContext.getBean(MyBean1.class);
 
             while (true) {
                 LOGGER.info("duccPrefixBean, hashCode: {} : {}", duccPrefixBean.hashCode(), duccPrefixBean);
@@ -68,6 +73,7 @@ public class SimpleYamlLauncher {
                 LOGGER.info("complexBean, hashCode：{} : {}", complexBean.hashCode(), complexBean);
                 LOGGER.info("endPointList from array: {}", starter.endpointListFromArray);
                 LOGGER.info("endPointList from json: {}", starter.endpointListFromJson);
+                LOGGER.info("myBean1: {}", myBean1);
                 Thread.sleep(2000L);
             }
         } catch (Exception ex) {
