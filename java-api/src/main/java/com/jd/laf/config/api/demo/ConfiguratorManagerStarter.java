@@ -86,36 +86,36 @@ public class ConfiguratorManagerStarter {
             @Override
             public void onUpdate(Configuration configuration) {
                 logger.info("{}", configuration);
-                try {
-                    String fName = "user";
-                    Field userField = jsonConvertUser.getClass().getDeclaredField(fName);
-                    String value = configuration.getProperty(fName).getValue().toString();
-                    Binding.set(jsonConvertUser, userField, value);
-
-                    //key1
-                    fName = "key1";
-                    Field key1Field = jsonConvertUser.getClass().getDeclaredField(fName);
-                    value = configuration.getProperty(fName).getValue().toString();
-                    Binding.set(jsonConvertUser, key1Field, value);
-
-                    //key2
-                    fName = "key2";
-                    Field key2Field = jsonConvertUser.getClass().getDeclaredField(fName);
-                    value = configuration.getProperty(fName).getValue().toString();
-                    Binding.set(jsonConvertUser, key2Field, value);
-
-                    //ignoreJsonUser
-                    fName = "ignoreJsonUser";
-                    Field ignoreJsonUserField = jsonConvertUser.getClass().getDeclaredField(fName);
-                    value = configuration.getProperty(fName).getValue().toString();
-                    Binding.set(jsonConvertUser, ignoreJsonUserField, value);
-
-                    logger.info("jsonConvertUser: {}", jsonConvertUser);
-                } catch (NoSuchFieldException e) {
-                    e.printStackTrace();
-                } catch (ReflectionException e) {
-                    e.printStackTrace();
-                }
+//                try {
+//                    String fName = "user";
+//                    Field userField = jsonConvertUser.getClass().getDeclaredField(fName);
+//                    String value = configuration.getProperty(fName).getValue().toString();
+//                    Binding.set(jsonConvertUser, userField, value);
+//
+//                    //key1
+//                    fName = "key1";
+//                    Field key1Field = jsonConvertUser.getClass().getDeclaredField(fName);
+//                    value = configuration.getProperty(fName).getValue().toString();
+//                    Binding.set(jsonConvertUser, key1Field, value);
+//
+//                    //key2
+//                    fName = "key2";
+//                    Field key2Field = jsonConvertUser.getClass().getDeclaredField(fName);
+//                    value = configuration.getProperty(fName).getValue().toString();
+//                    Binding.set(jsonConvertUser, key2Field, value);
+//
+//                    //ignoreJsonUser
+//                    fName = "ignoreJsonUser";
+//                    Field ignoreJsonUserField = jsonConvertUser.getClass().getDeclaredField(fName);
+//                    value = configuration.getProperty(fName).getValue().toString();
+//                    Binding.set(jsonConvertUser, ignoreJsonUserField, value);
+//
+//                    logger.info("jsonConvertUser: {}", jsonConvertUser);
+//                } catch (NoSuchFieldException e) {
+//                    e.printStackTrace();
+//                } catch (ReflectionException e) {
+//                    e.printStackTrace();
+//                }
             }
         });
 

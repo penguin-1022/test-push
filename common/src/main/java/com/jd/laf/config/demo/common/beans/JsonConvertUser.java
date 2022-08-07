@@ -1,5 +1,5 @@
-//package com.jd.laf.config.demo.common.beans;
-//
+package com.jd.laf.config.demo.common.beans;
+
 //import com.jd.laf.binding.annotation.IgnoreClassConverter;
 //import com.jd.laf.binding.annotation.JsonConverter;
 //import com.jd.laf.config.demo.common.bo.User;
@@ -16,7 +16,7 @@
 // * @since todo
 // */
 //@JsonConverter
-//public class JsonConvertUser {
+public class JsonConvertUser {
 //    private User user;
 //    private int key1;
 //    private String key2;
@@ -74,4 +74,4 @@
 //                ", ignoreJsonUser=" + ignoreJsonUser +
 //                '}';
 //    }
-//}
+}
