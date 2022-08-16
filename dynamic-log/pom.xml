@@ -15,6 +15,7 @@
     <modules>
         <module>spring-logback</module>
         <module>spring-log4j</module>
+        <module>spring-log4j2</module>
     </modules>
 
 </project>

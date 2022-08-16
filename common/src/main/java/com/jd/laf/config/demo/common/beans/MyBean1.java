@@ -17,9 +17,9 @@ import org.springframework.beans.factory.annotation.Value;
 @LafUcc(value = true)
 public class MyBean1 {
 
-    @Value("key1")
+    @Value("${key1}")
     private String key1;
-    @Value("key2")
+    @Value("${key2}")
     private String key2;
 
     public String getKey1() {
