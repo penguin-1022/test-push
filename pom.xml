@@ -28,6 +28,7 @@
         <module>spring-web-mvc</module>
         <module>common</module>
         <module>dynamic-log</module>
+        <module>predict</module>
     </modules>
 
     <build>
