@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="LOG.PATH">/export/Logs/wms-pick</Property>
+        <Property name="LOG.PATTERN">%d{HH:mm:ss yyyy-MM-dd} %t %-5p %c %M:%L - %m%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG.PATTERN}"/>
+        </Console>
+        <!-- debug -->
+        <RollingRandomAccessFile name="web-debug" fileName="${LOG.PATH}/web-debug.log"
+                                 filePattern="${LOG.PATH}/web-debug-%i.log"
+                                 bufferSize="2048" immediateFlush="false" append="true">
+            <Filters>
+                <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="NEUTRAL"/>
+            </Filters>
+            <PatternLayout pattern="${LOG.PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+        <!-- info -->
+        <RollingRandomAccessFile name="web-info" fileName="${LOG.PATH}/web-info.log"
+                                 filePattern="${LOG.PATH}/web-info-%i.log"
+                                 bufferSize="1024" immediateFlush="false" append="true">
+            <Filters>
+                <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LOG.PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+        <!-- warn -->
+        <RollingRandomAccessFile name="web-warn" fileName="${LOG.PATH}/web-warn.log"
+                                 filePattern="${LOG.PATH}/web-warn-%i.log"
+                                 bufferSize="1024" immediateFlush="false" append="true">
+            <Filters>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LOG.PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+        <!-- error -->
+        <RollingRandomAccessFile name="web-error" fileName="${LOG.PATH}/web-error.log"
+                                 filePattern="${LOG.PATH}/web-error-%i.log"
+                                 bufferSize="1024" immediateFlush="false" append="true">
+            <Filters>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LOG.PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+
+    <Loggers>
+        <AsyncRoot level="debug">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="web-debug"/>
+            <AppenderRef ref="web-info"/>
+            <AppenderRef ref="web-warn"/>
+            <AppenderRef ref="web-error"/>
+        </AsyncRoot>
+    </Loggers>
+</Configuration>

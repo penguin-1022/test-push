@@ -23,6 +23,7 @@
         <!-- log4j -->
 <!--        <laf-config:listener-script key="logger.level" script="script/log4j.js"/>-->
         <!-- log4j2 -->
-         <laf-config:listener-script key="logger.level" script="log4j2.demo.js"/>
+<!--         <laf-config:listener-script key="logger.level" script="log4j2.demo.js"/>-->
+        <laf-config:listener-script key="logger.level" script="script/log4j2.js"/>
     </laf-config:manager>
 </beans>

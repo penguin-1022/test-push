@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="LOG.PATH">/export/Logs/wms6-pick</Property>
+        <Property name="LOG.PATTERN">%d{HH:mm:ss yyyy-MM-dd} %-5p %c %M:%L - %m%n</Property>
+        <!-- 需要引入pfinder支持，隐式打印traceId。Message最大长度1000个字符，异常栈最大打印200行 -->
+        <property name="FILE_LOG_PATTERN">[%d{yyyy-MM-dd HH:mm:ss.SSS}][%p][%thread][SECURITY][%X{PFTID}][%l] - %.1000m - %ex{200}%n</property>
+    </Properties>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG.PATTERN}" />
+        </Console>
+        <!-- debug -->
+        <RollingRandomAccessFile  name="debug" fileName="${LOG.PATH}/debug.log"
+                                  filePattern="${LOG.PATH}/debug-%i.log"
+                                  bufferSize="2048" immediateFlush="false" append="true" >
+            <Filters>
+                <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="NEUTRAL"/>
+            </Filters>
+            <PatternLayout pattern="${LOG.PATTERN}" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingRandomAccessFile >
+
+        <!-- info -->
+        <RollingRandomAccessFile  name="info" fileName="${LOG.PATH}/info.log"
+                                  filePattern="${LOG.PATH}/info-%i.log"
+                                  bufferSize="1024" immediateFlush="false" append="true" >
+            <Filters>
+                <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LOG.PATTERN}" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingRandomAccessFile >
+
+        <!-- warn -->
+        <RollingRandomAccessFile  name="warn" fileName="${LOG.PATH}/warn.log"
+                                  filePattern="${LOG.PATH}/warn-%i.log"
+                                  bufferSize="1024" immediateFlush="false" append="true" >
+            <Filters>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LOG.PATTERN}" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingRandomAccessFile >
+
+        <!-- error -->
+        <RollingRandomAccessFile  name="error" fileName="${LOG.PATH}/error.log"
+                                  filePattern="${LOG.PATH}/error-%i.log"
+                                  bufferSize="1024" immediateFlush="false" append="true" >
+            <Filters>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LOG.PATTERN}" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingRandomAccessFile >
+    </Appenders>
+
+
+    <Loggers>
+        <AsyncRoot level="error">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="debug" />
+            <AppenderRef ref="info" />
+            <AppenderRef ref="warn" />
+            <AppenderRef ref="error" />
+        </AsyncRoot>
+    </Loggers>
+</Configuration>

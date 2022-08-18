@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 public class Config1 {
     private static final Logger logger = LogManager.getLogger(Config1.class);
 
+
     public Config1() {
     }
 
@@ -15,6 +16,11 @@ public class Config1 {
         System.out.println("-----");
 //        Logger l1 = LogManager.getLogger(Config1.class);
 //        Logger l2 = LogManager.getLogger(Config1.class.getName());
+
+//        org.apache.logging.log4j.core.Logger ll = (org.apache.logging.log4j.core.Logger)l2;
+//        ll.setLevel(org.apache.logging.log4j.Level.toLevel("warn"));
+
+//        org.apache.logging.log4j.core.config.Configurator.setLevel(Config1.class, org.apache.logging.log4j.Level.toLevel("warn"));
 
         logger.debug("1 debug level.");
         logger.info("2 info level.");
