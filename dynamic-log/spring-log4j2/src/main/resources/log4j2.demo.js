@@ -9,9 +9,9 @@ while(s.hasNext()){
         levelName = "INFO";
     }
     var level = org.apache.logging.log4j.Level.toLevel(levelName);
-    //var loggerContextFactory = org.apache.logging.log4j.LogManager.getFactory();
-    //var logger = org.apache.logging.log4j.LogManager.getLogger(k.getKey(), loggerContextFactory);
-    var logger = org.apache.logging.log4j.LogManager.getLogger(k.getKey());
+    var loggerContextFactory = org.apache.logging.log4j.LogManager.getFactory();
+    var logger = org.apache.logging.log4j.LogManager.getLogger(k.getKey(), loggerContextFactory);
+//    var logger = org.apache.logging.log4j.LogManager.getLogger(k.getKey());
     logger.setLevel(level);
 }
 
