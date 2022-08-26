@@ -29,6 +29,7 @@
         <module>common</module>
         <module>dynamic-log</module>
         <module>predict</module>
+        <module>tree-demo</module>
     </modules>
 
     <build>
