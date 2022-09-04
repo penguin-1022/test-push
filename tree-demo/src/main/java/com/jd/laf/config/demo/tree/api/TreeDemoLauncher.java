@@ -2,10 +2,13 @@ package com.jd.laf.config.demo.tree.api;
 
 import com.jd.laf.config.Configuration;
 import com.jd.laf.config.ConfiguratorManager;
+import com.jd.laf.config.Property;
 import com.jd.laf.config.Resource;
 import com.jd.laf.config.listener.ConfigurationListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 /**
  * Title: todo <br>
@@ -21,6 +24,8 @@ import org.slf4j.LoggerFactory;
 public class TreeDemoLauncher {
 
     private final static Logger logger = LoggerFactory.getLogger(TreeDemoLauncher.class);
+
+    private long versionOld, versionNew;
 
     public static void main(String[] args) {
 
@@ -49,9 +54,11 @@ public class TreeDemoLauncher {
 //        String uri = "ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/config1/profiles/profile2?longPolling=60000&necessary=true";
 //        String uri = "ucc://%s:%s@%s/longpolling/v2/namespace/%s/config/%s/profiles/%s?longPolling=60000&necessary=true&path=/,/a";
 //        uri = String.format(uri, appName, token, domain, namespace, config, profile);
-        String uri = "ucc://jdos_duccadmin:7251d2bc9b104b2ca49ef91491ac3c76@127.0.0.1:10020" +
-                "/longpolling/v2/namespace/treeTest/config/config-a/profiles/test?longPolling=60000&necessary=false" +
-                "&path=/json,/level1";
+
+
+        String uri = "ucc://jdos_ducc-server-test:7e7d8e007e2748e59f0cc1ee8f2e6848@" +
+                "ducc-server-test-duccservercstpre1.sys-try.svc.lf09.n.jd.local/longpolling/v2/namespace/pretreeTest/config/config-a/profiles/test?longPolling=60000&necessary=true" +
+                "&path=/";
 
         logger.info("uri: {}", uri);
 
@@ -78,9 +85,17 @@ public class TreeDemoLauncher {
         configuratorManager.addListener(new ConfigurationListener.CustomConfigurationListener(resourceName) {
             @Override
             public void onUpdate(Configuration configuration) {
-                logger.info("{}", configuration);
-                logger.info("{}", configuration.getProperties());
-
+                versionNew = configuration.getVersion();
+                if (versionOld >= versionNew) {
+                    logger.error("version is error, versionOld({}) >= versionNew({})", versionOld, versionNew);
+                }
+                versionOld = versionNew;
+                logger.info("config.version: {}", versionNew);
+                List<Property> list = configuration.getProperties();
+                for (Property p : list) {
+                    logger.info("{} -> {}, version: " + String.valueOf(p.getVersion()), p.getKey(), p.getValue());
+                }
+                logger.info("--------------------------------------------------------------------------------------");
             }
         });
 

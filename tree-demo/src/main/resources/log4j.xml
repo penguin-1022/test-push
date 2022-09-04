@@ -6,7 +6,7 @@
 	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
 		<param name="encoding" value="UTF-8" />
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="[%7r] %6p - %30.30c - %m \n" />
+			<param name="ConversionPattern" value="[%d{dd HH:mm:ss,SSS\} %-5p] [%t] %c{0\}[%L] - %m%n" />
 		</layout>
 		<filter class="org.apache.log4j.varia.LevelRangeFilter">
 			<param name="LevelMin" value="DEBUG" />
