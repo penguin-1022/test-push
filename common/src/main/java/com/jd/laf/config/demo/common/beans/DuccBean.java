@@ -114,6 +114,11 @@ public class DuccBean {
     }
 
     @Override
+    public void finalize() {
+        System.out.println("执行析构函数: " + toString());
+    }
+
+    @Override
     public String toString() {
         return "DuccBean{" +
                 "localConfig='" + localConfig + '\'' +

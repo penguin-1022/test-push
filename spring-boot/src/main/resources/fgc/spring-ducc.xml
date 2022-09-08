@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:laf-config="http://ducc.jd.com/schema/laf-config"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://ducc.jd.com/schema/laf-config http://ducc.jd.com/schema/laf-config/laf-config.xsd
+	    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="configListener" class="com.jd.laf.config.demo.common.listener.ConfigListener"/>
+
+    <context:property-placeholder location="classpath:/xml/ducc.properties" ignore-unresolvable="true"/>
+
+    <laf-config:manager id="configuratorManager" application="myapp_test">
+        <laf-config:parameter key="autoListener" value="true"/>
+        <!--
+        可以有多个 resource； 每个 resource 通常对应一个 ducc profile；
+        name 表示资源名称，ducc 要求 这个 name 进程内唯一；
+        uri 是配置定位，可以在 ducc 管理端-配置页面上，点击按钮生成这个 uri 的模板，然后把 appName 和 token 修改成实际值即可；
+        -->
+<!--        <laf-config:resource name="ucc_test" uri=-->
+<!--                "ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/config1/profiles/profile1?longPolling=60000&amp;necessary=true" />-->
+        <!-- 下面是使用占位符方式设置 uri -->
+        <laf-config:resource name="ucc_test" uri="${ducc.uri}"/>
+        <laf-config:listener-field key="ducc_key4" field="duccConfig4" beanName="duccBean"/>
+        <laf-config:listener-method key="complex.spring.xml.method" method="setSpringXMLMethod" beanClass="com.jd.laf.config.demo.common.beans.ComplexBean" />
+    </laf-config:manager>
+</beans>

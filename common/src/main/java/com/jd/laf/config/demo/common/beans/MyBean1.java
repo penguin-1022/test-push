@@ -45,4 +45,9 @@ public class MyBean1 {
                 ", key2='" + key2 + '\'' +
                 '}';
     }
+
+    @Override
+    public void finalize() {
+        System.out.println("执行析构函数: " + toString());
+    }
 }

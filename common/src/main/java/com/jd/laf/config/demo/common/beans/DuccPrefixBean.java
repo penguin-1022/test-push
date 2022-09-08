@@ -1,5 +1,7 @@
 package com.jd.laf.config.demo.common.beans;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
 /**
  * Title: todo <br>
  * <p/>
@@ -11,6 +13,7 @@ package com.jd.laf.config.demo.common.beans;
  * @date 2022/6/25
  * @since todo
  */
+@ConfigurationProperties(prefix = "config")
 public class DuccPrefixBean {
     private String key1 ;
     private String key2 ;
@@ -37,5 +40,10 @@ public class DuccPrefixBean {
                 "key1='" + key1 + '\'' +
                 ", key2='" + key2 + '\'' +
                 '}';
+    }
+
+    @Override
+    public void finalize() {
+        System.out.println("执行析构函数: " + toString());
     }
 }
