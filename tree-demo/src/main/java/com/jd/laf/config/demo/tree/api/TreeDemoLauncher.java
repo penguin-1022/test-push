@@ -42,23 +42,38 @@ public class TreeDemoLauncher {
         }
     }
 
+    private String prodAppName = "duccadmin";
+    private String testAppName = "myapp_test";
+    private String prodToken = "bd2f271319e349048853701b4dba2512";
+    private String testToken = "0bb15faf-a36d-40cd-9a93-88074eb920b0";
+
+    private String testTreeNS = "pretreeTest", testTreeCfg = "config-a", testTreeProfile = "test";
+    private String prodTreeNS = "ducc_demo", prodTreeCfg = "config1", prodTreeProfile = "profile1";
+
     public ConfiguratorManager ducc() throws Exception {
-//        String domain = "ducc.jd.local";
-        String domain = "127.0.0.1:10020";
-        String appName = "myapp_test";
-        String token = "0bb15faf-a36d-40cd-9a93-88074eb920b0";
-        String namespace = "cf_test", config = "tree1", profile = "profile2";
+        String domain = "ducc.jd.local";
+        domain = "ducc-server-test-duccservercstpre1.sys-try.svc.lf09.n.jd.local";
+//        String appName = "myapp_test";
+        String appName = prodAppName;
+        appName = testAppName;
+        appName = "jdos_ducc-server-test";
+        String token = prodToken;
+        token = testToken;
+        token = "7e7d8e007e2748e59f0cc1ee8f2e6848";
+//        String namespace = "cf_test", config = "tree1", profile = "profile2";
+//        String namespace = prodTreeNS, config = prodTreeCfg, profile = prodTreeProfile;
+        String namespace = testTreeNS, config = testTreeCfg, profile = testTreeProfile;
         //uri格式详解参见：https://git.jd.com/laf/laf-config/wikis/客户端使用指南->UCC配置服务
         //resource uri format => ucc://{app_name}:{token}@{domain}:{port}/v1/namespace/{namespace}/config/{configuration}/profiles/{profiles}?longPolling=60000&necessary=false
 //        String uri = "ucc://myapp_test:0bb15faf-a36d-40cd-9a93-88074eb920b0@test.ducc.jd.local/v1/namespace/ducc_admin/config/admin/profiles/common?longPolling=60000&necessary=false" ;
 //        String uri = "ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/config1/profiles/profile2?longPolling=60000&necessary=true";
 //        String uri = "ucc://%s:%s@%s/longpolling/v2/namespace/%s/config/%s/profiles/%s?longPolling=60000&necessary=true&path=/,/a";
-//        uri = String.format(uri, appName, token, domain, namespace, config, profile);
+        String uri = "ucc://%s:%s@%s/v1/namespace/%s/config/%s/profiles/%s?longPolling=60000&necessary=true";
+        uri = String.format(uri, appName, token, domain, namespace, config, profile);
 
-
-        String uri = "ucc://jdos_ducc-server-test:7e7d8e007e2748e59f0cc1ee8f2e6848@" +
-                "ducc-server-test-duccservercstpre1.sys-try.svc.lf09.n.jd.local/longpolling/v2/namespace/pretreeTest/config/config-a/profiles/test?longPolling=60000&necessary=true" +
-                "&path=/";
+//        String uri = "ucc://jdos_ducc-server-test:7e7d8e007e2748e59f0cc1ee8f2e6848@" +
+//                "ducc-server-test-duccservercstpre1.sys-try.svc.lf09.n.jd.local/longpolling/v2/namespace/pretreeTest/config/config-a/profiles/test?longPolling=60000&necessary=true" +
+//                "&path=/";
 
         logger.info("uri: {}", uri);
 
