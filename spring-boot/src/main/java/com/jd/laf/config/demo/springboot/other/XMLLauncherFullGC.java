@@ -7,7 +7,6 @@ import com.jd.laf.config.demo.common.beans.ComplexBean;
 import com.jd.laf.config.demo.common.beans.DuccBean;
 import com.jd.laf.config.demo.common.beans.DuccPrefixBean;
 import com.jd.laf.config.demo.common.bo.EndPoint;
-import com.jd.laf.config.demo.springboot.launchers.xml.XMLLauncher;
 import com.jd.laf.config.listener.ConfigurationListener;
 import com.jd.laf.config.spring.annotation.LafValue;
 import org.slf4j.Logger;
@@ -46,7 +45,7 @@ import java.util.List;
         "classpath:/fgc/local.properties"
 })
 public class XMLLauncherFullGC {
-    private static Logger LOGGER = LoggerFactory.getLogger(XMLLauncher.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(XMLLauncherFullGC.class);
 
     private static DuccBean duccBean1 = null, duccBean2 = null, duccBean3 = null;
     private static ComplexBean complexBean1 = null;
@@ -84,12 +83,12 @@ public class XMLLauncherFullGC {
     public static void main(String args[]) {
         try {
             System.setProperty("spring.config.location", "classpath:/fgc/");
-            applicationContext = SpringApplication.run(XMLLauncher.class, args);
+            applicationContext = SpringApplication.run(XMLLauncherFullGC.class, args);
 
             DuccPrefixBean duccPrefixBean = applicationContext.getBean("duccPrefixBean", DuccPrefixBean.class);
             DuccBean duccBean = applicationContext.getBean("duccBean", DuccBean.class);
             ComplexBean complexBean = applicationContext.getBean(ComplexBean.class);
-            XMLLauncher starter = applicationContext.getBean(XMLLauncher.class);
+            XMLLauncherFullGC starter = applicationContext.getBean(XMLLauncherFullGC.class);
 
             {
                 DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) applicationContext.getBeanFactory();

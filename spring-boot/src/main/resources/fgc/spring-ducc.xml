@@ -10,7 +10,7 @@
 
     <bean id="configListener" class="com.jd.laf.config.demo.common.listener.ConfigListener"/>
 
-    <context:property-placeholder location="classpath:/xml/ducc.properties" ignore-unresolvable="true"/>
+    <context:property-placeholder location="classpath:/fgc/ducc.properties" ignore-unresolvable="true"/>
 
     <laf-config:manager id="configuratorManager" application="myapp_test">
         <laf-config:parameter key="autoListener" value="true"/>
