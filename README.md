@@ -2,6 +2,9 @@
 
 The demo for DUCC 
 
+### demo中用到的配置示例
+http://taishan.jd.com/ducc/web/namespacedetail?id=10382&name=ducc_demo
+
 ### 测试环境域名以进行域名解析
 
 test.ducc.jd.local

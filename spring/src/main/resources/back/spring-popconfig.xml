@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:laf-config="http://ducc.jd.com/schema/laf-config"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+	    http://ducc.jd.com/schema/laf-config http://ducc.jd.com/schema/laf-config/laf-config.xsd
+	    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="configListener" class="com.jd.laf.config.demo.common.listener.ConfigListener"/>
+
+    <!-- ducc统一配置中心 -->
+    <bean id="configCenterClient" class="com.jd.pop.configcenter.client.DefaultConfigCenterClient" init-method="init" destroy-method="destroy">
+        <property name="duccUri" value="ducc.jd.local"/>   <!--测试环境：test.ducc.jd.local，国内环境：ducc.jd.local，泰国环境：th.ducc.jd.local，印尼环境：ducc-id.jd.local，海店同国内一样 -->
+        <property name="duccApp" value="duccadmin"/> <!--刚同步的ducc中的应用名 -->
+        <property name="duccToken" value="bd2f271319e349048853701b4dba2512"/> <!--ducc中同步的应用的令牌 -->
+        <property name="duccNamespace" value="ducc_demo"/> <!-- ducc中配置所在的命名空间-->
+        <property name="duccConfig" value="config1"/> <!-- ducc中配置所在的配置-->
+        <property name="duccProfile" value="profile1"/> <!-- ducc中配置所在的环境-->
+        <property name="duccNecessary" value="true"/> <!-- 默认true，强依赖：true，没有此资源则启动失败； 弱依赖：false，需要本地应用环境设置备份配置。-->
+        <property name="duccLongPolling" value="15"/> <!-- 长轮询时间，单位毫秒，默认配置15000毫秒。-->
+    </bean>
+</beans>

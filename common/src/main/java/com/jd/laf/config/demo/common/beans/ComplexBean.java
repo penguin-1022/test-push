@@ -25,6 +25,12 @@ import java.util.Map;
 public class ComplexBean {
     private static Logger LOGGER = LoggerFactory.getLogger(ComplexBean.class);
 
+    private String springXMLMethod;
+
+    @LafValue("complex.integerList")
+    @JsonConverter
+    private List<Integer> integerList;
+
     @LafValue("complex.simpleValue")
     private String simpleValue;
 
@@ -85,6 +91,14 @@ public class ComplexBean {
 
     //inject at method
     private List<StdClass> classList;
+
+    public String getSpringXMLMethod() {
+        return springXMLMethod;
+    }
+
+    public void setSpringXMLMethod(String springXMLMethod) {
+        this.springXMLMethod = springXMLMethod;
+    }
 
     public String getSimpleValue() {
         return simpleValue;
@@ -184,13 +198,23 @@ public class ComplexBean {
     @Override
     public String toString() {
         return "ComplexBean{" +
-                "simpleValue='" + simpleValue + '\'' +
+                "springXMLMethod='" + springXMLMethod + '\'' +
+                ", integerList=" + integerList +
+                ", simpleValue='" + simpleValue + '\'' +
                 ", user=" + user +
                 ", userList=" + userList +
                 ", userMap=" + userMap +
                 ", dateBean=" + dateBean +
                 ", userMapList=" + userMapList +
+                ", userMapList2=" + userMapList2 +
+                ", userMapList3=" + userMapList3 +
+                ", userMapList4=" + userMapList4 +
                 ", classList=" + classList +
                 '}';
+    }
+
+    @Override
+    public void finalize() {
+        System.out.println("执行析构函数: " + toString());
     }
 }
