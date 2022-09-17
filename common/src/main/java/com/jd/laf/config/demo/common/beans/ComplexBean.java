@@ -27,6 +27,10 @@ public class ComplexBean {
 
     private String springXMLMethod;
 
+    @LafValue("complex.integerList")
+    @JsonConverter
+    private List<Integer> integerList;
+
     @LafValue("complex.simpleValue")
     private String simpleValue;
 
@@ -195,6 +199,7 @@ public class ComplexBean {
     public String toString() {
         return "ComplexBean{" +
                 "springXMLMethod='" + springXMLMethod + '\'' +
+                ", integerList=" + integerList +
                 ", simpleValue='" + simpleValue + '\'' +
                 ", user=" + user +
                 ", userList=" + userList +
