@@ -3,24 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>dynamic-log</artifactId>
+        <artifactId>ducc-demo</artifactId>
         <groupId>ducc.demo</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-log4j2</artifactId>
+    <artifactId>dict-demo</artifactId>
 
     <properties>
-        <log4j2.version>2.18.0</log4j2.version>
-<!--        <log4j2.version>2.12.1</log4j2.version>-->
-<!--        <log4j2.version>2.11.1</log4j2.version>-->
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.jd.laf.config</groupId>
-            <artifactId>laf-config-client-jd-spring</artifactId>
+            <artifactId>laf-config-client-jd</artifactId>
             <version>${ducc.client.version}</version>
             <type>pom</type> <!-- type 不能省略 -->
             <exclusions>
@@ -31,36 +30,34 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>4.3.13.RELEASE</version>
+            <groupId>ducc.demo</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- 使用slf4j 作为日志门面 -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.26</version>
         </dependency>
         <!-- 使用 log4j2 的适配器进行绑定 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
-            <version>${log4j2.version}</version>
         </dependency>
 
         <!-- log4j2 日志门面 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>${log4j2.version}</version>
         </dependency>
         <!-- log4j2 日志实面 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>${log4j2.version}</version>
         </dependency>
 
     </dependencies>
+
 </project>
