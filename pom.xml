@@ -13,7 +13,8 @@
         <spring.version>4.2.6.RELEASE</spring.version>
         <!-- alpha 是内测版本， rc 版本是公测版，推荐使用 release 版本，
         版本说明见： https://cf.jd.com/pages/viewpage.action?pageId=404963249 -->
-        <ducc.client.version>1.2.0-HOTFIX-T1</ducc.client.version>
+<!--        <ducc.client.version>1.2.0-HOTFIX-T1</ducc.client.version>-->
+        <ducc.client.version>1.2.0</ducc.client.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-compiler-plugin.compilerArgument>-parameters</maven-compiler-plugin.compilerArgument>
 
