@@ -48,7 +48,7 @@ public class DictLauncher {
         String appName = prodAppName;
         String token = prodToken;
         final String namespace = prodTreeNS, config = prodTreeCfg, profile = prodTreeProfile;
-        String uri = "ucc://%s:%s@%s/v1/namespace/%s/config/%s/profiles/%s?longPolling=5000&necessary=true";
+        String uri = "ucc://%s:%s@%s/v1/namespace/%s/config/%s/profiles/%s?longPolling=5000&necessary=true&configType=dict";
         uri = String.format(uri, appName, token, domain, namespace, config, profile);
 
         LOG.info("uri: {}", uri);
