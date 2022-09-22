@@ -66,7 +66,6 @@ public class DictLauncher {
 
         //创建资源对象，此处直接使用ducc远程，Name属性很重要，下面会用到
         Resource resource = new Resource(resourceName, uri);
-        resource.setDictCached(true);
         DictDataReceiverRegistry.register(dictTableName, new PrintDictDataReceiver());
         //给配置管理器添加管理的资源
         configuratorManager.addResource(resource);
