@@ -4,6 +4,8 @@ import com.jd.laf.config.Configuration;
 import com.jd.laf.config.ConfiguratorManager;
 import com.jd.laf.config.Property;
 import com.jd.laf.config.Resource;
+import com.jd.laf.config.dict.DictDataReceiverRegistry;
+import com.jd.laf.config.dict.PrintDictDataReceiver;
 import com.jd.laf.config.listener.ConfigurationListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +29,7 @@ public class DictLauncher {
     private String prodAppName = "duccadmin";
     private String prodToken = "bd2f271319e349048853701b4dba2512";
     private String prodTreeNS = "ducc_demo", prodTreeCfg = "dict1", prodTreeProfile = "cf-test-1";
+    private String dictTableName = "cf-test-1";
 
     public static void main(String[] args) {
         try {
@@ -63,7 +66,7 @@ public class DictLauncher {
 
         //创建资源对象，此处直接使用ducc远程，Name属性很重要，下面会用到
         Resource resource = new Resource(resourceName, uri);
-        resource.setDictCached(true);
+        DictDataReceiverRegistry.register(dictTableName, new PrintDictDataReceiver());
         //给配置管理器添加管理的资源
         configuratorManager.addResource(resource);
 

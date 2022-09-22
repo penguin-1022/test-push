@@ -20,7 +20,7 @@
 <!--        <laf-config:resource name="ucc_test" uri=-->
 <!--                "ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/config1/profiles/profile1?longPolling=60000&amp;necessary=true" />-->
         <!-- 下面是使用占位符方式设置 uri -->
-        <laf-config:resource name="ucc_test" uri="${ducc.uri}" dictCached="true" />
+        <laf-config:resource name="ucc_test" uri="${ducc.uri}" />
         <laf-config:listener-field key="ducc_key4" field="duccConfig4" beanName="duccBean"/>
     </laf-config:manager>
 </beans>
