@@ -34,6 +34,7 @@
         <module>predict</module>
         <module>tree-demo</module>
         <module>dict-demo</module>
+        <module>dict-spring-demo</module>
     </modules>
 
     <dependencyManagement>
