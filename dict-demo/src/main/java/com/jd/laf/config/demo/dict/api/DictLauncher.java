@@ -44,8 +44,7 @@ public class DictLauncher {
     }
 
     public ConfiguratorManager ducc() throws Exception {
-//        String domain = "ducc.jd.local";
-        String domain = "duccserver-yufa.ducc.svc.ht09.n.jd.local";
+        String domain = "ducc.jd.local";
         String appName = prodAppName;
         String token = prodToken;
         final String namespace = prodTreeNS, config = prodTreeCfg, profile = prodTreeProfile;
