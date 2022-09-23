@@ -43,37 +43,19 @@ public class TreeDemoLauncher {
     }
 
     private String prodAppName = "duccadmin";
-    private String testAppName = "myapp_test";
     private String prodToken = "bd2f271319e349048853701b4dba2512";
-    private String testToken = "0bb15faf-a36d-40cd-9a93-88074eb920b0";
 
-    private String testTreeNS = "pretreeTest", testTreeCfg = "config-a", testTreeProfile = "test";
-    private String prodTreeNS = "ducc_demo", prodTreeCfg = "config1", prodTreeProfile = "profile1";
+    private String prodTreeNS = "ducc_demo", prodTreeCfg = "tree1", prodTreeProfile = "profile1";
 
     public ConfiguratorManager ducc() throws Exception {
-        String domain = "ducc.jd.local";
-        domain = "ducc-server-test-duccservercstpre1.sys-try.svc.lf09.n.jd.local";
-//        String appName = "myapp_test";
+        String domain = "ducc.jd.local"; // 使用 ducc 长轮询域名
         String appName = prodAppName;
-        appName = testAppName;
-        appName = "jdos_ducc-server-test";
         String token = prodToken;
-        token = testToken;
-        token = "7e7d8e007e2748e59f0cc1ee8f2e6848";
-//        String namespace = "cf_test", config = "tree1", profile = "profile2";
-//        String namespace = prodTreeNS, config = prodTreeCfg, profile = prodTreeProfile;
-        String namespace = testTreeNS, config = testTreeCfg, profile = testTreeProfile;
-        //uri格式详解参见：https://git.jd.com/laf/laf-config/wikis/客户端使用指南->UCC配置服务
-        //resource uri format => ucc://{app_name}:{token}@{domain}:{port}/v1/namespace/{namespace}/config/{configuration}/profiles/{profiles}?longPolling=60000&necessary=false
-//        String uri = "ucc://myapp_test:0bb15faf-a36d-40cd-9a93-88074eb920b0@test.ducc.jd.local/v1/namespace/ducc_admin/config/admin/profiles/common?longPolling=60000&necessary=false" ;
-//        String uri = "ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/config1/profiles/profile2?longPolling=60000&necessary=true";
-//        String uri = "ucc://%s:%s@%s/longpolling/v2/namespace/%s/config/%s/profiles/%s?longPolling=60000&necessary=true&path=/,/a";
-        String uri = "ucc://%s:%s@%s/v1/namespace/%s/config/%s/profiles/%s?longPolling=60000&necessary=true";
-        uri = String.format(uri, appName, token, domain, namespace, config, profile);
 
-//        String uri = "ucc://jdos_ducc-server-test:7e7d8e007e2748e59f0cc1ee8f2e6848@" +
-//                "ducc-server-test-duccservercstpre1.sys-try.svc.lf09.n.jd.local/longpolling/v2/namespace/pretreeTest/config/config-a/profiles/test?longPolling=60000&necessary=true" +
-//                "&path=/";
+        String namespace = prodTreeNS, config = prodTreeCfg, profile = prodTreeProfile;
+        // uri格式详解参见：https://cf.jd.com/pages/viewpage.action?pageId=404963382 客户端使用指南->UCC配置服务
+        String uri = "ucc://%s:%s@%s/longpolling/v2/namespace/%s/config/%s/profiles/%s?longPolling=60000&necessary=true&configType=tree&path=/,/rate_limit";
+        uri = String.format(uri, appName, token, domain, namespace, config, profile);
 
         logger.info("uri: {}", uri);
 
@@ -83,7 +65,7 @@ public class TreeDemoLauncher {
         configuratorManager.setApplication(appName);
 
         //resourceName是资源名，命名自定义，多个时不要重复
-        String resourceName = "myResourceName";
+        final String resourceName = "myTreeDemo1";
 
         //创建资源对象，此处直接使用ducc远程，Name属性很重要，下面会用到
         Resource resource = new Resource(resourceName, uri);
@@ -91,7 +73,7 @@ public class TreeDemoLauncher {
         configuratorManager.addResource(resource);
 
         //可以监听多个Resource
-        //configuratorManager.addResource(resource); 调用多次
+        //configuratorManager.addResource(resource2);
 
         //启动之后才可以获取配置
         configuratorManager.start();
@@ -100,19 +82,17 @@ public class TreeDemoLauncher {
         configuratorManager.addListener(new ConfigurationListener.CustomConfigurationListener(resourceName) {
             @Override
             public void onUpdate(Configuration configuration) {
-                versionNew = configuration.getVersion();
-                if (versionOld >= versionNew) {
-                    logger.error("version is error, versionOld({}) >= versionNew({})", versionOld, versionNew);
-                }
-                versionOld = versionNew;
-                logger.info("config.version: {}", versionNew);
-                List<Property> list = configuration.getProperties();
-                for (Property p : list) {
-                    logger.info("{} -> {}, version: " + String.valueOf(p.getVersion()), p.getKey(), p.getValue());
-                }
+                logger.info("resource: \"{}\" update, conf: {}", resourceName, configuration);
                 logger.info("--------------------------------------------------------------------------------------");
             }
         });
+        // 获取整个 resource 的配置
+        Configuration conf = configuratorManager.getConfiguration(resourceName);
+        logger.info("resource: {}, conf: {}", resourceName, conf);
+
+        // 获取单独某个配置的key
+        Property p = configuratorManager.getProperty("/rate_limit/interface");
+        logger.info("resource: {}, key: /rate_limit/interface, conf: {}", resourceName, p);
 
         return configuratorManager;
     }
