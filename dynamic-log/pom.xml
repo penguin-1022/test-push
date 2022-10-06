@@ -12,6 +12,10 @@
 
     <artifactId>dynamic-log</artifactId>
 
+    <properties>
+        <ducc.client.version>intest-1.2.0-HOTFIX-T2-SNAPSHOT</ducc.client.version>
+    </properties>
+
     <modules>
         <module>log-common</module>
         <module>spring-logback</module>
