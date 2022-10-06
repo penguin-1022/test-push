@@ -25,8 +25,6 @@ public class TreeDemoLauncher {
 
     private final static Logger logger = LoggerFactory.getLogger(TreeDemoLauncher.class);
 
-    private long versionOld, versionNew;
-
     public static void main(String[] args) {
 
         try {
@@ -44,8 +42,7 @@ public class TreeDemoLauncher {
 
     private String prodAppName = "duccadmin";
     private String prodToken = "bd2f271319e349048853701b4dba2512";
-
-    private String prodTreeNS = "ducc_demo", prodTreeCfg = "tree1", prodTreeProfile = "profile1";
+    private String prodTreeNS = "ducc_demo", prodTreeCfg = "tree1", prodTreeProfile = "profile3";
 
     public ConfiguratorManager ducc() throws Exception {
         String domain = "ducc.jd.local"; // 使用 ducc 长轮询域名

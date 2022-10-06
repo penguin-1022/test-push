@@ -1,14 +1,13 @@
-package com.jd.laf.config.demo.spring.log4j2;
+package com.jd.laf.config.demo.log.common;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-@Component
-public class Config4 {
-    private static final Logger logger = LoggerFactory.getLogger(Config4.class);
+public class Config1 {
+    private static final Logger logger = LoggerFactory.getLogger(Config1.class);
 
-    public Config4() {
+    public Config1() {
     }
 
     public void loggerLevel() {

@@ -13,9 +13,12 @@
     <artifactId>dynamic-log</artifactId>
 
     <modules>
+        <module>log-common</module>
         <module>spring-logback</module>
         <module>spring-log4j</module>
         <module>spring-log4j2</module>
+        <module>spring-boot-log4j2</module>
+        <module>java-api-log4j2</module>
     </modules>
 
 </project>

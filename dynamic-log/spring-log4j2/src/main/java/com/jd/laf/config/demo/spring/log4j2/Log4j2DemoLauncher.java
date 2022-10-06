@@ -1,23 +1,29 @@
 package com.jd.laf.config.demo.spring.log4j2;
 
+import com.jd.laf.config.demo.log.common.Config1;
+import com.jd.laf.config.demo.log.common.Config2;
+import com.jd.laf.config.demo.log.common.Config3;
+import com.jd.laf.config.demo.log.common.Config4;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.concurrent.TimeUnit;
 
 public class Log4j2DemoLauncher {
 
     public static void main(String args[]) throws Exception {
         ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("/spring.xml");
-        Config1 config1 = appContext.getBean(Config1.class);
-        Config2 config2 = appContext.getBean(Config2.class);
-        Config3 config3 = appContext.getBean(Config3.class);
-        Config4 config4 = appContext.getBean(Config4.class);
+
+        Config1 config1 = new Config1();
+        Config2 config2 = new Config2();
+        Config3 config3 = new Config3();
+        Config4 config4 = new Config4();
 
         while (true) {
             config1.loggerLevel();
             config2.loggerLevel();
             config3.loggerLevel();
             config4.loggerLevel();
-            System.out.println("\n\n\n");
-            Thread.sleep(3000);
+            TimeUnit.SECONDS.sleep(3);
         }
     }
 }

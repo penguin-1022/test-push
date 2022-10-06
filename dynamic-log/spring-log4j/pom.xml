@@ -11,12 +11,13 @@
 
     <artifactId>spring-log4j</artifactId>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
-
     <dependencies>
+        <dependency>
+            <groupId>ducc.demo</groupId>
+            <artifactId>log-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.jd.laf.config</groupId>
             <artifactId>laf-config-client-jd-spring</artifactId>

@@ -9,14 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-log4j2</artifactId>
-
-    <properties>
-        <log4j2.version>2.18.0</log4j2.version>
-<!--        <log4j2.version>2.12.1</log4j2.version>-->
-<!--        <log4j2.version>2.11.1</log4j2.version>-->
-<!--        <log4j2.version>2.11.0</log4j2.version>-->
-    </properties>
+    <artifactId>java-api-log4j2</artifactId>
 
     <dependencies>
         <dependency>
@@ -26,23 +19,21 @@
         </dependency>
 
         <dependency>
-            <groupId>com.jd.laf.config</groupId>
-            <artifactId>laf-config-client-jd-spring</artifactId>
-            <version>${ducc.client.version}</version>
-            <type>pom</type> <!-- type 不能省略 -->
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>ducc.demo</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>4.3.13.RELEASE</version>
+            <groupId>com.jd.laf.config</groupId>
+            <artifactId>laf-config-client-jd</artifactId>
+            <version>${ducc.client.version}</version>
+            <type>pom</type> <!-- type 不能省略 -->
         </dependency>
-
+        <dependency>
+            <groupId>com.jd.laf.config</groupId>
+            <artifactId>laf-config-client-logging</artifactId>
+            <version>${ducc.client.version}</version>
+        </dependency>
         <!-- 使用slf4j 作为日志门面 -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -65,5 +56,13 @@
             <artifactId>log4j-slf4j-impl</artifactId>
             <version>${log4j2.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
+
 </project>

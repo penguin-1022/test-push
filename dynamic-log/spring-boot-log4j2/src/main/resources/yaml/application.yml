@@ -1,0 +1,25 @@
+#注意： 多个 uri 可以继续在此配置，注意 name 不要重复
+#laf.config.manager.resources[1].name=myapp_test2
+#laf.config.manager.resources[1].uri==ucc://xxxx
+
+# 特别注意：*****
+# 下面配置值，控制是否自动注入监听器。 true 表示的是 Spring @Value 注入的变量都具备自动同步配置变更的能力。
+# 如果您设置的是 false，但是某个字段想使用 spring @Value 注解注入，并希望获取 ducc 动态值，可以结合 @LafUcc 使用。
+# 详情请查看文档： https://cf.jd.com/pages/viewpage.action?pageId=446932624
+
+laf:
+  config:
+    manager:
+      application: myapp_test
+      parameters[0]:
+        name: autoListener
+        value: true
+      resources[0]:
+        name: myapp_test0
+        uri: ${app.ducc.uris.product[0]}
+
+app:
+  ducc:
+    uris:
+      product:
+        - ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/logging/profiles/log4j2?longPolling=60000&necessary=true
