@@ -12,7 +12,7 @@
     <artifactId>dict-spring-demo</artifactId>
 
     <properties>
-        <!-- 词表联调版本，不能使用在生产环境 -->
+        <!-- todo 词表联调版本，不能使用在生产环境 -->
         <ducc.client.version>0.0.0-dict-SNAPSHOT</ducc.client.version>
     </properties>
 
