@@ -17,9 +17,6 @@ laf:
       resources[0]:
         name: myapp_test0
         uri: ${app.ducc.uris.product[0]}
-      parameters[1]:
-        name: autoListener
-        value: true
       resources[1]:
         name: myapp_test1
         uri: ${app.ducc.uris.product[1]}

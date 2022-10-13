@@ -45,17 +45,13 @@ public class DictLauncher {
 
     public ConfiguratorManager ducc() throws Exception {
         String domain = "ducc.jd.local";
-         domain = "ducc-server-test-duccservercstpre1.sys-try.svc.lf09.n.jd.local";
-            prodAppName = "jdos_ducc-server-test";
-            prodToken = "7e7d8e007e2748e59f0cc1ee8f2e6848";
-
+         domain = "ducc.jd.local";
+            prodAppName = "duccadmin";
+            prodToken = "bd2f271319e349048853701b4dba2512";
 
         String appName = prodAppName;
         String token = prodToken;
-//        final String namespace = prodTreeNS, config = prodTreeCfg, profile = prodTreeProfile;
-        final String namespace = "dev_ns", config = "dict_config",
-//                profile = "test-app-hp-conf";
-                profile = "test0829";
+        final String namespace = "ducc_demo", config = "dict1", profile = "cf-test-1";
 
         String uri = "ucc://%s:%s@%s/v1/namespace/%s/config/%s/profiles/%s?longPolling=5000&necessary=true&configType=dict&dictTimeout=12000";
         uri = String.format(uri, appName, token, domain, namespace, config, profile);

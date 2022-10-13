@@ -12,10 +12,7 @@
     <artifactId>dict-demo</artifactId>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <!-- todo 词表联调版本，不能使用在生产环境 -->
-        <ducc.client.version>0.0.0-dict-SNAPSHOT</ducc.client.version>
+        <ducc.client.version>1.4.0</ducc.client.version>
     </properties>
 
     <dependencies>
