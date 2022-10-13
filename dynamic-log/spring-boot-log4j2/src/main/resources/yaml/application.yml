@@ -9,6 +9,10 @@
 
 laf:
   config:
+    logger:
+      enabled: true
+      type: log4j2
+      key: logger.level
     manager:
       application: myapp_test
       parameters[0]:
@@ -22,4 +26,4 @@ app:
   ducc:
     uris:
       product:
-        - ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/logging/profiles/log4j2?longPolling=60000&necessary=true
+        - ucc://extrnal-soa-vip-plus-go:5a1be160113b482589daab5a02767557@ducc.jd.local/v1/namespace/vip.plus.go/config/p.ms.conf/profiles/yc?longPolling=60000&necessary=true

@@ -32,7 +32,11 @@ public class HelloControler {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
         LOGGER.info("DUCC Bean 监听动态配置； {}", duccBean);
+        LOGGER.debug("普通 spring bean； {}", user);
         LOGGER.info("普通 spring bean； {}", user);
+        LOGGER.warn("普通 spring bean； {}", user);
+        LOGGER.error("普通 spring bean； {}", user);
+        System.out.println("\n\n");
         return "index";
     }
 

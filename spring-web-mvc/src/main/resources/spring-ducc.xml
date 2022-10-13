@@ -17,10 +17,15 @@
         name 表示资源名称，ducc 要求 这个 name 进程内唯一；
         uri 是配置定位，可以在 ducc 管理端-配置页面上，点击按钮生成这个 uri 的模板，然后把 appName 和 token 修改成实际值即可；
         -->
-        <laf-config:resource name="ucc_test" uri=
+        <laf-config:resource name="ucc_test1" uri=
                 "ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/config1/profiles/profile1?longPolling=60000&amp;necessary=true" />
-        <!-- 下面是使用占位符方式设置 uri -->
-<!--                <laf-config:resource name="ucc_test" uri="${ducc.uri}" />-->
+<!--        <laf-config:resource name="ucc_test2" uri=-->
+<!--                "ucc://extrnal-soa-vip-plus-go:5a1be160113b482589daab5a02767557@ducc.jd.local/v1/namespace/vip.plus.go/config/p.ms.conf/profiles/yc?longPolling=60000&amp;necessary=true" />-->
+        <laf-config:resource name="ucc_test2" uri=
+                "ucc://extrnal-soa-vip-plus-go:5a1be160113b482589daab5a02767557@ducc.jd.local/v1/namespace/ducc_demo/config/logging/profiles/test?longPolling=60000&amp;necessary=true" />
         <laf-config:listener-field key="ducc_key4" field="duccConfig4" beanName="duccBean"/>
+
+        <!-- ducc管理端设置,key是：logger.level value是：ROOT=DEBUG ,配置后进行发布-->
+        <laf-config:listener-script key="logger.level" script="script/log4j2.js"/>
     </laf-config:manager>
 </beans>
