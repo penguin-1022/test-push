@@ -75,23 +75,6 @@ public class DictLauncher {
         //启动之后才可以获取配置
         configuratorManager.start();
 
-        final String printStr = uri;
-        //添加监听器，resource维度的监听器
-        configuratorManager.addListener(new ConfigurationListener.CustomConfigurationListener(resourceName) {
-            @Override
-            public void onUpdate(Configuration configuration) {
-                LOG.info("dict[{}] has been updated and published.", printStr);
-                if (configuration != null) {
-                    List<Property> properties = configuration.getProperties();
-                    for (Property p : properties) {
-                        LOG.info("key[{}]: value[{}]", p.getKey(), p.getString());
-                    }
-                    LOG.info("dict data version: [{}]", configuration.getVersion());
-                }
-                LOG.info("--------------------------------------------------------------------------------------");
-            }
-        });
-
         return configuratorManager;
     }
 }
