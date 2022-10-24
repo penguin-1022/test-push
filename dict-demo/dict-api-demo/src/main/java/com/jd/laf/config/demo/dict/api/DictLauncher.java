@@ -1,15 +1,10 @@
 package com.jd.laf.config.demo.dict.api;
 
-import com.jd.laf.config.Configuration;
 import com.jd.laf.config.ConfiguratorManager;
-import com.jd.laf.config.Property;
 import com.jd.laf.config.Resource;
 import com.jd.laf.config.dict.PrintDictDataReceiver;
-import com.jd.laf.config.listener.ConfigurationListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
 /**
  * Title: todo <br>
  * <p/>
