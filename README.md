@@ -14,25 +14,33 @@ ducc.jd.local
 
 ### model说明
 - [common](common)
-  - 说明：demo 各个 model 共用
-- [java-api 示例 demo](java-api)
-  - 说明：在 pom 里引入 ducc sdk，通过 api 方式使用 ducc sdk.
-  - [点击查看文档](https://cf.jd.com/pages/viewpage.action?pageId=404963648)
-- [dynamic-log](dynamic-log)
-  - 说明：动态日志配置 demo
-  - [点击查看文档](https://cf.jd.com/pages/viewpage.action?pageId=649793744)
-- [spring](spring)
-    - 说明：spring 场景的 demo
-    - [点击查看文档](https://cf.jd.com/pages/viewpage.action?pageId=446932624)
-- [spring-boot](spring-boot)
-    - 说明：spring boot 场景的 demo
-    - [点击查看文档](https://cf.jd.com/pages/viewpage.action?pageId=407042022)
-- [spring-web-mvc](spring-web-mvc)
-    - 说明：spring web mvc 场景的 demo. 和 spring 场景相同，可以查看 spring 场景使用文档.
-    - [点击查看spring场景文档](https://cf.jd.com/pages/viewpage.action?pageId=446932624)
-- [staticconfig](spring-web-mvc)
-    - 说明：ducc sdk 支持读取本地静态配置文件.
-
-
+  - 说明：demo 各个 module 共用
+- [keyValue-demo](keyValue-demo)
+  - 说明：key/value 数据类型配置相关 demo
+  - [java-api 示例 demo](keyValue-demo/java-api)
+    - 说明：在 pom 里引入 ducc sdk，通过 api 方式使用 ducc sdk.
+    - [点击查看文档](https://cf.jd.com/pages/viewpage.action?pageId=404963648)
+  - [dynamic-log](keyValue-demo/dynamic-log)
+    - 说明：动态日志配置 demo
+    - [点击查看文档](https://cf.jd.com/pages/viewpage.action?pageId=649793744)
+  - [spring](keyValue-demo/spring)
+      - 说明：spring 场景的 demo
+      - [点击查看文档](https://cf.jd.com/pages/viewpage.action?pageId=446932624)
+  - [spring-boot](keyValue-demo/spring-boot)
+      - 说明：spring boot 场景的 demo
+      - [点击查看文档](https://cf.jd.com/pages/viewpage.action?pageId=407042022)
+  - [spring-web-mvc](keyValue-demo/spring-web-mvc)
+      - 说明：spring web mvc 场景的 demo. 和 spring 场景相同，可以查看 spring 场景使用文档.
+      - [点击查看spring场景文档](https://cf.jd.com/pages/viewpage.action?pageId=446932624)
+  - [spring-web-mvc](keyValue-demo/spring-web-mvc)
+      - 说明：ducc sdk 支持读取本地静态配置文件.
+- [staticconfig](static-config)
+  - 说明：ducc sdk 支持读取本地静态配置文件.
+- [dict-demo](dict-demo)
+  - 说明： 词表数据结构类型配置相关 demo
+  - [dict-api-demo](dict-demo/dict-api-demo)
+    - 说明：词表 api 方式 demo
+  - [dict-spring-demo](dict-demo/dict-spring-demo)
+  - 说明：词表 spring 方式 demo
 
 
