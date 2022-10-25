@@ -23,16 +23,12 @@
     </properties>
 
     <modules>
-        <module>java-api</module>
-        <module>spring</module>
-        <module>spring-boot</module>
         <module>static-config</module>
-        <module>spring-web-mvc</module>
         <module>common</module>
-        <module>dynamic-log</module>
         <module>predict</module>
         <module>tree-demo</module>
         <module>dict-demo</module>
+        <module>keyValue-demo</module>
     </modules>
 
     <dependencyManagement>
