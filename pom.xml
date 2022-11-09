@@ -17,7 +17,8 @@
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-compiler-plugin.compilerArgument>-parameters</maven-compiler-plugin.compilerArgument>
 
-        <jdk.version>1.6</jdk.version>
+<!--        <jdk.version>1.6</jdk.version>-->
+        <jdk.version>1.8</jdk.version>
         <slf4j.version>1.7.26</slf4j.version>
         <log4j2.version>2.18.0</log4j2.version>
     </properties>

@@ -9,6 +9,7 @@
 	    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="duccBean" class="com.jd.laf.config.demo.common.beans.DuccBean" />
+    <bean id="supportConvertTypeSimple" class="com.jd.laf.config.demo.common.beans.SupportConvertTypeSimple" />
 
     <!-- 使用 spring 占位符时，例如 ducc.uri，需要使用 property-placeholder，
     详见 FAQ: https://cf.jd.com/display/JSF/FAQ (1. 配置未能实时获取，如何自行排查) -->
