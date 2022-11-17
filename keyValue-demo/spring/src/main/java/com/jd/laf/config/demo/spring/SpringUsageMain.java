@@ -1,8 +1,11 @@
 package com.jd.laf.config.demo.spring;
 
+import com.jd.laf.config.ConfiguratorManager;
 import com.jd.laf.config.demo.common.beans.DuccBean;
 import com.jd.laf.config.demo.common.beans.SupportConvertTypeSimple;
 import com.jd.laf.config.demo.common.bo.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -10,17 +13,24 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class SpringUsageMain {
 
+    private static Logger LOG = LoggerFactory.getLogger(SpringUsageMain.class);
+
     public static void main(String args[]) throws Exception {
         ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("/spring.xml");
         DuccBean duccBean = appContext.getBean(DuccBean.class) ;
         SupportConvertTypeSimple simple = appContext.getBean(SupportConvertTypeSimple.class);
+        ConfiguratorManager manager = appContext.getBean(ConfiguratorManager.class);
 
         User user = appContext.getBean(User.class);
+        Thread.sleep(2000);
+
         while (true) {
             Thread.sleep(2000);
             System.out.println(duccBean);
             System.out.println(user);
             System.out.println(simple);
+            LOG.info("xxxxxxxxxxxxx");
+            manager.restart();
         }
     }
 }
