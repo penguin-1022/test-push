@@ -26,11 +26,10 @@ public class SpringUsageMain {
 
         while (true) {
             Thread.sleep(2000);
-            System.out.println(duccBean);
-            System.out.println(user);
-            System.out.println(simple);
-            LOG.info("xxxxxxxxxxxxx");
-            manager.restart();
+            LOG.info("{}", duccBean);
+            LOG.info("{}", user);
+            LOG.info("{}", simple);
+            LOG.info("=========================================================");
         }
     }
 }
