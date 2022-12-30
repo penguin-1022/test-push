@@ -22,6 +22,7 @@
         <!-- 下面是使用占位符方式设置 uri -->
         <laf-config:resource name="ucc_test" uri="${ducc.uri}" />
         <laf-config:resource name="convert_type" uri="${ducc.uri.convertType}" />
+        <!-- 不推荐使用此方式： 因为 listener-field 标签的方式在注入配置比较滞后，可能比其它中间件如 jsf/jmq 配置加载晚-->
         <laf-config:listener-field key="ducc_key4" field="duccConfig4" beanName="duccBean"/>
     </laf-config:manager>
 </beans>

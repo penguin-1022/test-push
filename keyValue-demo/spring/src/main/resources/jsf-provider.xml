@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jsf="http://jsf.jd.com/schema/jsf"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://jsf.jd.com/schema/jsf http://jsf.jd.com/schema/jsf/jsf.xsd">
+
+    <bean id="helloService" class="com.jd.laf.config.demo.spring.jsf.HelloServiceImpl" init-method="init"/>
+
+    <jsf:registry id="jsfRegistry" protocol="jsfRegistry" index="i.jsf.jd.com" register="false" />
+
+    <jsf:server id="jsf" protocol="jsf" port="9090" />
+
+    <jsf:provider id="helloServiceExport" interface="com.jd.laf.config.demo.spring.jsf.HelloService"
+                 ref="helloService" server="jsf" alias="JSF:0.0.1" register="false" >
+    </jsf:provider>
+
+</beans>

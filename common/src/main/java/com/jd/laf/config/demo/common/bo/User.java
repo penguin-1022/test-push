@@ -1,5 +1,7 @@
 package com.jd.laf.config.demo.common.bo;
 
+import org.springframework.beans.factory.InitializingBean;
+
 /**
  * Title: 普通 spring bean. <br>
  * <p/>
@@ -9,7 +11,7 @@ package com.jd.laf.config.demo.common.bo;
  * @date 2022/5/25
  * @since todo
  */
-public class User {
+public class User implements InitializingBean {
     private String name;
     private int age;
     private String password;
@@ -45,5 +47,14 @@ public class User {
                 ", age=" + age +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    public void init() {
+        System.out.println("User.init");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("User.afterPropertiesSet");
     }
 }

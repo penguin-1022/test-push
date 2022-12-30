@@ -4,7 +4,7 @@
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="user" class="com.jd.laf.config.demo.common.bo.User">
+    <bean id="user" class="com.jd.laf.config.demo.common.bo.User" init-method="init">
         <property name="name" value="${user.erp}" />
         <property name="age" value="${user.age}" />
         <property name="password" value="${user.password}" />

@@ -7,6 +7,7 @@ import com.jd.laf.config.demo.common.bo.User;
 import com.jd.laf.config.spring.annotation.LafValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,7 @@ import java.util.Map;
  * @date 2022/6/26
  * @since todo
  */
-public class ComplexBean {
+public class ComplexBean implements InitializingBean {
     private static Logger LOGGER = LoggerFactory.getLogger(ComplexBean.class);
 
     private String springXMLMethod;
@@ -216,5 +217,10 @@ public class ComplexBean {
     @Override
     public void finalize() {
         System.out.println("执行析构函数: " + toString());
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("DuccBean.afterPropertiesSet");
     }
 }

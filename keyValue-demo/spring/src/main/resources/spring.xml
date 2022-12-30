@@ -8,7 +8,8 @@
 	    http://ducc.jd.com/schema/laf-config http://ducc.jd.com/schema/laf-config/laf-config.xsd
 	    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="duccBean" class="com.jd.laf.config.demo.common.beans.DuccBean" />
+    <import resource="classpath:jsf-provider.xml" />
+    <bean id="duccBean" class="com.jd.laf.config.demo.common.beans.DuccBean" init-method="init" />
     <bean id="supportConvertTypeSimple" class="com.jd.laf.config.demo.common.beans.SupportConvertTypeSimple" />
 
     <!-- 使用 spring 占位符时，例如 ducc.uri，需要使用 property-placeholder，
@@ -16,6 +17,7 @@
     <context:property-placeholder location="classpath:/*.properties" ignore-unresolvable="true"/>
 
     <context:annotation-config/>
+
 
     <import resource="classpath:spring-other.xml"/>
     <!--最佳实践：将 ducc 配置放在最后 -->

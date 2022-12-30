@@ -4,6 +4,7 @@ import com.jd.laf.config.ConfiguratorManager;
 import com.jd.laf.config.demo.common.beans.DuccBean;
 import com.jd.laf.config.demo.common.beans.SupportConvertTypeSimple;
 import com.jd.laf.config.demo.common.bo.User;
+import com.jd.laf.config.demo.spring.jsf.HelloService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -17,6 +18,8 @@ public class SpringUsageMain {
 
     public static void main(String args[]) throws Exception {
         ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("/spring.xml");
+        HelloService helloService = (HelloService) appContext.getBean("helloService");
+
         DuccBean duccBean = appContext.getBean(DuccBean.class) ;
         SupportConvertTypeSimple simple = appContext.getBean(SupportConvertTypeSimple.class);
         ConfiguratorManager manager = appContext.getBean(ConfiguratorManager.class);

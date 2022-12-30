@@ -5,11 +5,12 @@ import com.jd.laf.config.Property;
 import com.jd.laf.config.spring.annotation.LafValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 
 /**
  * Created by bjliuyong on 2018/11/26.
  */
-public class ConfigListener {
+public class ConfigListener implements InitializingBean {
     private static Logger LOGGER = LoggerFactory.getLogger(ConfigListener.class);
 
     /**
@@ -41,4 +42,8 @@ public class ConfigListener {
        LOGGER.info("使用 @LafValue name 监听 resource (即 profile )维度配置", configuration);
     }
 
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("ConfigListener.afterPropertiesSet");
+    }
 }

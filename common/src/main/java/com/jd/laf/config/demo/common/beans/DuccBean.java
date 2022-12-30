@@ -3,6 +3,7 @@ package com.jd.laf.config.demo.common.beans;
 import com.jd.laf.config.Configuration;
 import com.jd.laf.config.spring.annotation.LafUcc;
 import com.jd.laf.config.spring.annotation.LafValue;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 
 /**
@@ -16,7 +17,7 @@ import org.springframework.beans.factory.annotation.Value;
  * @date 2022/5/28
  * @since todo
  */
-public class DuccBean {
+public class DuccBean implements InitializingBean {
 
     /**
      * 没什么特殊的<br>
@@ -127,5 +128,14 @@ public class DuccBean {
                 ", duccConfig3='" + duccConfig3 + '\'' +
                 ", duccConfig4='" + duccConfig4 + '\'' +
                 '}';
+    }
+
+    public void init() {
+        System.out.println("DuccBean.init");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("DuccBean.afterPropertiesSet");
     }
 }
