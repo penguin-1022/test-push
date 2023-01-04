@@ -63,10 +63,23 @@ public class DuccBean implements InitializingBean {
     /**
      * 监听 key：方式4<br>
      *
+     * 注意： 不推荐使用此方式： 因为 listener-field 标签的方式在注入配置比较滞后，可能比其它中间件如 jsf/jmq 配置加载晚<br/>
+     *
      * 在 spring-ducc.xml 中使用 laf-config:listener-field 监听 ducc_key4 的配置变化，示例见： spring-ducc.xml.<br>
      * <p></p>
      */
     private String duccConfig4;
+
+    /**
+     * 监听 key：方式5<br>
+     *
+     * 注： ducc sdk 版本要求 >= 1.4.1<br>
+     *
+     * 在 方法上使用 spring @{@link Value} 注解.<br>
+     *
+     * <p></p>
+     */
+    private String duccConfig5;
 
     /**
      * name 对应的是 src/main/resources/spring-ducc.xml 中的 resource name
@@ -114,6 +127,19 @@ public class DuccBean implements InitializingBean {
         this.duccConfig4 = duccConfig4;
     }
 
+    public String getDuccConfig5() {
+        return duccConfig5;
+    }
+
+    /**
+     * 注： ducc sdk 版本要求 >= 1.4.1
+     * @param duccConfig5
+     */
+    @Value("${ducc_key5:defaultValue}")
+    public void setDuccConfig5(String duccConfig5) {
+        this.duccConfig5 = duccConfig5;
+    }
+
     @Override
     public void finalize() {
         System.out.println("执行析构函数: " + toString());
@@ -127,6 +153,7 @@ public class DuccBean implements InitializingBean {
                 ", duccConfig2='" + duccConfig2 + '\'' +
                 ", duccConfig3='" + duccConfig3 + '\'' +
                 ", duccConfig4='" + duccConfig4 + '\'' +
+                ", duccConfig5='" + duccConfig5 + '\'' +
                 '}';
     }
 

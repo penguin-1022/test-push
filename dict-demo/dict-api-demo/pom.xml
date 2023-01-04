@@ -11,10 +11,6 @@
 
     <artifactId>dict-api-demo</artifactId>
 
-    <properties>
-        <ducc.client.version>1.4.0</ducc.client.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.jd.laf</groupId>

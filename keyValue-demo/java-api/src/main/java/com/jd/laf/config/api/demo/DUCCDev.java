@@ -39,7 +39,7 @@ public class DUCCDev {
         String subUri;
 
         String format = "ucc://%s:%s@%s";
-        //-- 预发
+        //-- cst 预发
         appName = "jdos_ducc-dict-server";
         token = "6c8eea7c227d42048aa29046114df268";
         subUri = "ducc-server-test-duccservercstpre1.sys-try.svc.lf09.n.jd.local/v1/namespace/cf_test/config/cfg1/profiles/compress2?longPolling=60000&necessary=true";
@@ -50,15 +50,24 @@ public class DUCCDev {
 //        subUri = "test.ducc.jd.local/v1/namespace/ducc_cf/config/config-a/profiles/profile1?longPolling=60000&necessary=true";
 
         //-- 本地环境
-//        appName = "jdos_duccadmin";
-//        token = "7251d2bc9b104b2ca49ef91491ac3c76";
-//        subUri = "127.0.0.1:10020/v1/namespace/ducc_cf/config/config-a/profiles/profile1?longPolling=5000&necessary=true";
+        appName = "jdos_duccadmin";
+        token = "7251d2bc9b104b2ca49ef91491ac3c76";
+        subUri = "127.0.0.1:10020/v1/namespace/ducc_cf/config/config-a/profiles/profile1?longPolling=5000&necessary=true";
 
         //-- 线上环境
-//        appName = "duccadmin";
-//        token = "bd2f271319e349048853701b4dba2512";
-//        subUri = "ducc.jd.local/v1/namespace/ducc_cf/config/admin/profiles/common?longPolling=60000&necessary=true";
+        appName = "duccadmin";
+        token = "bd2f271319e349048853701b4dba2512";
+        subUri = "ducc.jd.local/v1/namespace/ducc_cf/config/admin/profiles/common?longPolling=60000&necessary=true";
 
+        //-- 线上预发
+        appName = "duccadmin";
+        token = "bd2f271319e349048853701b4dba2512";
+        subUri = "duccserver-yufa.ducc.svc.ht09.n.jd.local/v1/namespace/ducc_cf/config/admin/profiles/common?longPolling=60000&necessary=true";
+
+//        appName = "ky-ability";
+//        token = "91e46d8cd47d4207abfc9ea2db4f157a";
+//        subUri = "duccserver-yufa.ducc.svc.ht09.n.jd.local/v1/namespace/ky_ability_config/config/applicationConfig/profiles/production?longPolling=60000&necessary=true&restore=false";
+////        subUri = "ducc.jd.local/v1/namespace/ky_ability_config/config/applicationConfig/profiles/production?longPolling=60000&necessary=true&restore=false";
 
         String uri = String.format(format, appName, token, subUri);
 //        uri = "ucc://jdos_app-try-worker:ca540a8806d14628b62a11ca7e21553b@ducc.jd.local/v1/namespace/cst1/config/cst1/profiles/cst1?longPolling=60000&necessary=false";
@@ -74,6 +83,8 @@ public class DUCCDev {
 
         //创建资源对象，此处直接使用ducc远程，Name属性很重要，下面会用到
         Resource resource = new Resource(resourceName, uri);
+        //开启增量模式
+        resource.setUseIncrementModel(true);
         //给配置管理器添加管理的资源
         configuratorManager.addResource(resource);
 
