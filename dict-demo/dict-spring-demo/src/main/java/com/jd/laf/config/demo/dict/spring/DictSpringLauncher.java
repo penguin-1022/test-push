@@ -20,7 +20,7 @@ public class DictSpringLauncher {
         ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("/spring.xml");
         while (true) {
             Thread.sleep(2000);
-            System.out.println("----------" + new Date());
+//            System.out.println("----------" + new Date());
         }
     }
 }

@@ -9,9 +9,14 @@
 
     <artifactId>dict-demo</artifactId>
     <packaging>pom</packaging>
+    <properties>
+        <ducc.client.version>1.4.1-SNAPSHOT</ducc.client.version>
+    </properties>
 
     <modules>
         <module>dict-api-demo</module>
         <module>dict-spring-demo</module>
+        <module>dict-springboot-demo</module>
+        <module>dict-common</module>
     </modules>
 </project>

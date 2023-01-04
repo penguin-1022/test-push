@@ -2,17 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:laf-config="http://ducc.jd.com/schema/laf-config"
-       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-	    http://ducc.jd.com/schema/laf-config http://ducc.jd.com/schema/laf-config/laf-config.xsd
-	    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	    http://ducc.jd.com/schema/laf-config http://ducc.jd.com/schema/laf-config/laf-config.xsd">
 
-    <bean id="dictReceiver" class="com.jd.laf.config.dict.PrintDictDataReceiver" />
+    <bean id="dictReceiver" class="com.jd.laf.config.demo.dict.common.receiver.DictDataReceiverImplDemo"/>
 
     <laf-config:manager id="configuratorManager" application="myapp_test">
-        <laf-config:resource name="ucc_test" uri="${ducc.uri}" >
-            <laf-config:dict beanName="dictReceiver" />
+        <laf-config:resource name="ucc_test" useIncrementModel="true" uri="${ducc.uri}">
+            <laf-config:dict beanName="dictReceiver"/>
         </laf-config:resource>
     </laf-config:manager>
 </beans>

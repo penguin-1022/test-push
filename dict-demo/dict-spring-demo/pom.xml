@@ -10,15 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>dict-spring-demo</artifactId>
-
-    <properties>
-        <ducc.client.version>1.4.0</ducc.client.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>ducc.demo</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>dict-common</artifactId>
             <version>${project.version}</version>
         </dependency>
 
