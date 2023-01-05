@@ -3,19 +3,12 @@
  */
 package com.jd.laf.config.demo.spring.jsf;
 
-import com.jd.jsf.gd.server.AsyncContext;
-import com.jd.jsf.gd.transport.Callback;
-import com.jd.jsf.gd.util.RpcContext;
 import com.jd.laf.config.spring.annotation.LafUcc;
 import com.jd.laf.config.spring.annotation.LafValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
-
-import java.net.InetSocketAddress;
-import java.util.HashSet;
-import java.util.Random;
 
 public class HelloServiceImpl implements HelloService, InitializingBean {
 

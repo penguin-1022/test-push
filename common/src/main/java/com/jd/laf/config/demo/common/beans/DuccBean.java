@@ -135,6 +135,7 @@ public class DuccBean implements InitializingBean {
      * 注： ducc sdk 版本要求 >= 1.4.1
      * @param duccConfig5
      */
+    @LafUcc
     @Value("${ducc_key5:defaultValue}")
     public void setDuccConfig5(String duccConfig5) {
         this.duccConfig5 = duccConfig5;

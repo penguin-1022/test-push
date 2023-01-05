@@ -11,14 +11,14 @@
     <bean id="configListener" class="com.jd.laf.config.demo.common.listener.ConfigListener"/>
 
     <laf-config:manager id="configuratorManager" application="myapp_test">
-        <laf-config:parameter key="autoListener" value="true"/>
+        <laf-config:parameter key="autoListener" value="false"/>
         <!--
         可以有多个 resource； 每个 resource 通常对应一个 ducc profile；
         name 表示资源名称，ducc 要求 这个 name 进程内唯一；
         uri 是配置定位，可以在 ducc 管理端-配置页面上，点击按钮生成这个 uri 的模板，然后把 appName 和 token 修改成实际值即可；
         -->
         <!-- 下面是使用占位符方式设置 uri -->
-        <laf-config:resource name="ucc_test" uri="${ducc.uri}" />
+        <laf-config:resource name="ucc_test" uri="${ducc.uri}"/>
         <!-- useIncrementModel=true 表示使用增量模式，ducc sdk 需要升级到 1.4.1 或以上版本 -->
         <laf-config:resource name="convert_type" uri="${ducc.uri.convertType}" useIncrementModel="true"/>
         <!-- 不推荐使用此方式： 因为 listener-field 标签的方式在注入配置比较滞后，可能比其它中间件如 jsf/jmq 配置加载晚-->

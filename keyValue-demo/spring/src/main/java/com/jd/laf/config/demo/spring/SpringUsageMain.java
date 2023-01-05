@@ -28,11 +28,11 @@ public class SpringUsageMain {
         Thread.sleep(2000);
 
         while (true) {
-            Thread.sleep(2000);
             LOG.info("{}", duccBean);
             LOG.info("{}", user);
             LOG.info("{}", simple);
             LOG.info("=========================================================");
+            Thread.sleep(2000);
         }
     }
 }

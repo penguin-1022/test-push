@@ -10,6 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>java-api-log4j2</artifactId>
+    <properties>
+        <!-- java api 方式使用 ducc 动态日志，版本要求 >= 1.3.0-HOTFIX-T1 -->
+        <ducc.client.version>1.4.1-SNAPSHOT</ducc.client.version>
+        <jdk.version>1.8</jdk.version>
+    </properties>
 
     <dependencies>
         <dependency>
