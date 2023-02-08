@@ -52,8 +52,8 @@ public class TreeDemoLauncher {
         String namespace = prodTreeNS, config = prodTreeCfg, profile = prodTreeProfile;
         // uri格式详解参见：https://cf.jd.com/pages/viewpage.action?pageId=404963382 客户端使用指南->UCC配置服务
         String uri = "ucc://%s:%s@%s/longpolling/v2/namespace/%s/config/%s/profiles/%s?longPolling=60000&necessary=true&configType=tree&path=/,/rate_limit";
-        uri = String.format(uri, appName, token, domain, namespace, config, profile);
 
+        uri = String.format(uri, appName, token, domain, namespace, config, profile);
         logger.info("uri: {}", uri);
 
         //创建ConfiguratorManager 实例，有1个就可以
@@ -79,6 +79,11 @@ public class TreeDemoLauncher {
         configuratorManager.addListener(new ConfigurationListener.CustomConfigurationListener(resourceName) {
             @Override
             public void onUpdate(Configuration configuration) {
+                List<Property> properties = configuration.getProperties();
+
+                logger.info("--------------------------------------------------------------------------------------");
+                properties.forEach(property -> System.out.println(property.getKey()));
+                logger.info("--------------------------------------------------------------------------------------");
                 logger.info("resource: \"{}\" update, conf: {}", resourceName, configuration);
                 logger.info("--------------------------------------------------------------------------------------");
             }

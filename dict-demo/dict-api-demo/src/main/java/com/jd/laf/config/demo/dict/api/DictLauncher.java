@@ -63,6 +63,12 @@ public class DictLauncher {
 
         //创建资源对象，此处直接使用ducc远程，Name属性很重要，下面会用到
         Resource resource = new Resource(resourceName, uri);
+        /**
+         * 如果使用增量模式，设置为 true，默认是全量模式。
+         *
+         * 两种模式的 Receiver 实现不同，可以参考 {@link com.jd.laf.config.demo.dict.common.receiver.DictDataReceiverImplDemo}
+         */
+        resource.setUseIncrementModel(false);
         resource.setDictDataReceiver(new DictDataReceiverImplDemo());
         //给配置管理器添加管理的资源
         configuratorManager.addResource(resource);
