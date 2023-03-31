@@ -10,6 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>java-api</artifactId>
+
+    <properties>
+        <ducc.client.version>1.4.2-SNAPSHOT</ducc.client.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.jd.laf.config</groupId>
