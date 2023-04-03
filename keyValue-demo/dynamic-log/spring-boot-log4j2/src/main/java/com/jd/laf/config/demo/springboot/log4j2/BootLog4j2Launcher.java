@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  * Title: todo <br>
  * <p/>
  * Description:
- * 配置示例地址： http://taishan.jd.com/ducc/web/namespacework?nsId=10382&nsName=ducc_demo&cId=73294&cName=config1&envId=141393&envName=log4j2&defAppId=2769&dataType=0&nsnav=0
+ * 配置示例地址： http://taishan.jd.com/ducc/web/nswork?nsId=10382&nsName=ducc_demo&cId=142284&cName=logging&envId=174524&envName=log4j2&defAppId=2769&dataType=0
  * <p>
  * company: <a href=www.jd.com>www.jd.com</a>
  *
