@@ -19,6 +19,7 @@
         <module>spring-log4j2</module>
         <module>spring-boot-log4j2</module>
         <module>java-api-log4j2</module>
+        <module>specific-demo</module>
     </modules>
 
 </project>
