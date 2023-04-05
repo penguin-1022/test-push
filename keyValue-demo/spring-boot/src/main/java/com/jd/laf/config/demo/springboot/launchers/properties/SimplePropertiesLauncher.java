@@ -5,6 +5,7 @@ import com.jd.laf.config.demo.common.beans.ComplexBean;
 import com.jd.laf.config.demo.common.beans.DuccBean;
 import com.jd.laf.config.demo.common.beans.DuccPrefixBean;
 import com.jd.laf.config.demo.common.bo.EndPoint;
+import com.jd.laf.config.demo.springboot.configbean.UserInfo;
 import com.jd.laf.config.spring.annotation.LafValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +38,12 @@ public class SimplePropertiesLauncher {
         return new DuccPrefixBean() ;
     }
 
+    @Bean("localUser")
+    @ConfigurationProperties(prefix = "local")
+    public UserInfo localUserInfo() {
+        return new UserInfo() ;
+    }
+
     @Bean
     public DuccBean duccBean() {
         return new DuccBean();
@@ -67,8 +74,10 @@ public class SimplePropertiesLauncher {
             DuccBean duccBean = applicationContext.getBean("duccBean", DuccBean.class);
             ComplexBean complexBean = applicationContext.getBean(ComplexBean.class);
             SimplePropertiesLauncher starter = applicationContext.getBean(SimplePropertiesLauncher.class);
+            UserInfo userInfo = applicationContext.getBean("localUser", UserInfo.class);
 
             while (true) {
+                LOGGER.info("userInfo, hashCode: {} : {}", userInfo.hashCode(), userInfo);
                 LOGGER.info("duccPrefixBean, hashCode: {} : {}", duccPrefixBean.hashCode(), duccPrefixBean);
                 LOGGER.info("duccBean, hashCode：{} : {}", duccBean.hashCode(), duccBean);
                 LOGGER.info("complexBean, hashCode：{} : {}", complexBean.hashCode(), complexBean);

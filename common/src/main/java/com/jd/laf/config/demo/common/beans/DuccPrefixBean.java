@@ -18,6 +18,8 @@ public class DuccPrefixBean {
     private String key1 ;
     private String key2 ;
 
+    private Address address;
+
     public String getKey1() {
         return key1;
     }
@@ -39,6 +41,7 @@ public class DuccPrefixBean {
         return "DuccPrefixBean{" +
                 "key1='" + key1 + '\'' +
                 ", key2='" + key2 + '\'' +
+                ", address=" + address +
                 '}';
     }
 

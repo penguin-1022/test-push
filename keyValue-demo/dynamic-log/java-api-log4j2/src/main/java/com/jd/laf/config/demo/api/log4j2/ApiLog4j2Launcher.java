@@ -24,7 +24,7 @@ import static com.jd.laf.config.logging.Log4jLevelUpdaterFactory.LogType.LOG4J2;
  * @date 2022/10/6
  * @since todo
  */
-public class ApiLog4jLauncher {
+public class ApiLog4j2Launcher {
 
     private static void watchLogLevel() throws Exception {
         String appName = "myapp_test" ;
