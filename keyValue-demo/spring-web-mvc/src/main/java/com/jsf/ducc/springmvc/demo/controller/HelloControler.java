@@ -2,9 +2,11 @@ package com.jsf.ducc.springmvc.demo.controller;
 
 import com.jd.laf.config.demo.common.beans.DuccBean;
 import com.jd.laf.config.demo.common.bo.User;
+import com.jd.laf.config.spring.annotation.LafUcc;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +30,10 @@ public class HelloControler {
     private DuccBean duccBean;
     @Autowired
     private User user;
+
+    @LafUcc
+    @Value("${ducc_key2}")
+    private String duccConfig2;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
