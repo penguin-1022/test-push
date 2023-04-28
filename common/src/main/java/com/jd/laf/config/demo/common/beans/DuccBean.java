@@ -82,6 +82,17 @@ public class DuccBean implements InitializingBean {
     private String duccConfig5;
 
     /**
+     * 监听 key：方式5<br>
+     *
+     * 注： ducc sdk 版本要求 >= 1.4.1<br>
+     *
+     * 在 方法上使用 spring @{@link Value} 注解.<br>
+     *
+     * <p></p>
+     */
+    private String duccConfig6;
+
+    /**
      * name 对应的是 src/main/resources/spring-ducc.xml 中的 resource name
      */
     @LafValue(name = "ucc_test")
@@ -141,6 +152,15 @@ public class DuccBean implements InitializingBean {
         this.duccConfig5 = duccConfig5;
     }
 
+    public String getDuccConfig6() {
+        return duccConfig6;
+    }
+
+    @Value("${ducc_key6:defaultValue}")
+    public void setDuccConfig6(String duccConfig6) {
+        this.duccConfig6 = duccConfig6;
+    }
+
     @Override
     public void finalize() {
         System.out.println("执行析构函数: " + toString());
@@ -155,6 +175,8 @@ public class DuccBean implements InitializingBean {
                 ", duccConfig3='" + duccConfig3 + '\'' +
                 ", duccConfig4='" + duccConfig4 + '\'' +
                 ", duccConfig5='" + duccConfig5 + '\'' +
+                ", duccConfig6='" + duccConfig6 + '\'' +
+                ", configuration=" + configuration +
                 '}';
     }
 
