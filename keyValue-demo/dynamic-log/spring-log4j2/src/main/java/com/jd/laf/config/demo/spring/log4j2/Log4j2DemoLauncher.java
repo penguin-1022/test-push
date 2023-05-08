@@ -4,12 +4,14 @@ import com.jd.laf.config.demo.log.common.Config1;
 import com.jd.laf.config.demo.log.common.Config2;
 import com.jd.laf.config.demo.log.common.Config3;
 import com.jd.laf.config.demo.log.common.Config4;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.concurrent.TimeUnit;
 
 public class Log4j2DemoLauncher {
-
+    private static Logger LOG = LoggerFactory.getLogger(Log4j2DemoLauncher.class);
     public static void main(String args[]) throws Exception {
         ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("/spring.xml");
 
@@ -23,6 +25,13 @@ public class Log4j2DemoLauncher {
             config2.loggerLevel();
             config3.loggerLevel();
             config4.loggerLevel();
+
+            LOG.error("---------------------------------------------------------------------------------------");
+            LOG.debug("======================debug===================================");
+            LOG.info("=======================info==================================");
+            LOG.warn("=======================warn==================================");
+            LOG.error("=======================error==================================");
+
             TimeUnit.SECONDS.sleep(3);
         }
     }

@@ -4,11 +4,11 @@ import com.jd.laf.config.demo.log.common.Config1;
 import com.jd.laf.config.demo.log.common.Config2;
 import com.jd.laf.config.demo.log.common.Config3;
 import com.jd.laf.config.demo.log.common.Config4;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,6 +26,7 @@ import java.util.concurrent.TimeUnit;
  */
 @SpringBootApplication(scanBasePackages = "com.jd.laf.config.demo.springboot.log4j2")
 public class BootLog4j2Launcher {
+    private static Logger LOG = LoggerFactory.getLogger(BootLog4j2Launcher.class);
 
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("spring.config.location", "classpath:/yaml/");
@@ -42,6 +43,13 @@ public class BootLog4j2Launcher {
             config2.loggerLevel();
             config3.loggerLevel();
             config4.loggerLevel();
+
+            LOG.error("---------------------------------------------------------------------------------------");
+            LOG.debug("======================debug===================================");
+            LOG.info("=======================info==================================");
+            LOG.warn("=======================warn==================================");
+            LOG.error("=======================error==================================");
+
             TimeUnit.SECONDS.sleep(3);
         }
     }
