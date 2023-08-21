@@ -27,4 +27,4 @@ app:
   ducc:
     uris:
       product:
-        - ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/logging/profiles/log4j2
+        - ucc://duccadmin:bd2f271319e349048853701b4dba2512@ducc.jd.local/v1/namespace/ducc_demo/config/logging/profiles/log4j2?longPolling=60000&necessary=true
