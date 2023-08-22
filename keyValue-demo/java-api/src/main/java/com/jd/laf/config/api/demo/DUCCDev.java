@@ -83,8 +83,7 @@ public class DUCCDev {
 
         //创建资源对象，此处直接使用ducc远程，Name属性很重要，下面会用到
         Resource resource = new Resource(resourceName, uri);
-        //开启增量模式
-        resource.setUseIncrementModel(true);
+        resource.setUseIncrementModel(false);//是否开启增量模式，默认： false
         //给配置管理器添加管理的资源
         configuratorManager.addResource(resource);
 
