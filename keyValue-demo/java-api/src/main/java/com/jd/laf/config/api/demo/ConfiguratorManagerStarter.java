@@ -57,18 +57,18 @@ public class ConfiguratorManagerStarter {
         //启动之后才可以获取配置
         configuratorManager.start();
 
+        String key = "test.key";
         //获取配置 方式1 (获取合并后指定配置)
-        Property property1 = configuratorManager.getProperty("jdbc.url");
-        logger.info("{}", "jdbc.url:" + property1.getString());
+        Property property1 = configuratorManager.getProperty(key);
+        logger.info("test.key: {}", property1);
 
         //获取配置 方式2 (获取指定配置源下指定配置)
-        Property property2 = configuratorManager.getProperty(resourceName, "jdbc.url");
-        logger.info("{}", "jdbc.url:" + property2.getString());
+        Property property2 = configuratorManager.getProperty(resourceName, key);
+        logger.info("{}: {}", key, property2);
 
         //获取配置 方式3 (获取指定配置源下配置集合)
         final Configuration configuraiton = configuratorManager.getConfiguration(resourceName);
-        logger.info("{}", "ucc configuration:" + configuraiton);
-        logger.info("{}", "jdbc.url:" + configuraiton.getProperty("jdbc.url").getString());
+        logger.info("{}: {}", key, configuraiton.getProperty(key));
 
         //添加监听器，配置项维度的监听器
         configuratorManager.addListener(new PropertyListener.CustomPropertyListener("test.key") {
@@ -83,36 +83,6 @@ public class ConfiguratorManagerStarter {
             @Override
             public void onUpdate(Configuration configuration) {
                 logger.info("{}", configuration);
-//                try {
-//                    String fName = "user";
-//                    Field userField = jsonConvertUser.getClass().getDeclaredField(fName);
-//                    String value = configuration.getProperty(fName).getValue().toString();
-//                    Binding.set(jsonConvertUser, userField, value);
-//
-//                    //key1
-//                    fName = "key1";
-//                    Field key1Field = jsonConvertUser.getClass().getDeclaredField(fName);
-//                    value = configuration.getProperty(fName).getValue().toString();
-//                    Binding.set(jsonConvertUser, key1Field, value);
-//
-//                    //key2
-//                    fName = "key2";
-//                    Field key2Field = jsonConvertUser.getClass().getDeclaredField(fName);
-//                    value = configuration.getProperty(fName).getValue().toString();
-//                    Binding.set(jsonConvertUser, key2Field, value);
-//
-//                    //ignoreJsonUser
-//                    fName = "ignoreJsonUser";
-//                    Field ignoreJsonUserField = jsonConvertUser.getClass().getDeclaredField(fName);
-//                    value = configuration.getProperty(fName).getValue().toString();
-//                    Binding.set(jsonConvertUser, ignoreJsonUserField, value);
-//
-//                    logger.info("jsonConvertUser: {}", jsonConvertUser);
-//                } catch (NoSuchFieldException e) {
-//                    e.printStackTrace();
-//                } catch (ReflectionException e) {
-//                    e.printStackTrace();
-//                }
             }
         });
 

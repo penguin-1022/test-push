@@ -12,7 +12,7 @@
     <artifactId>spring</artifactId>
 
     <properties>
-        <ducc.client.version>1.4.1-HOTFIX-T1</ducc.client.version>
+        <ducc.client.version>1.4.1</ducc.client.version>
     </properties>
 
     <dependencies>
