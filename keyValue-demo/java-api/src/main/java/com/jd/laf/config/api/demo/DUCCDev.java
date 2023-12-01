@@ -59,10 +59,6 @@ public class DUCCDev {
         token = "bd2f271319e349048853701b4dba2512";
         subUri = "ducc.jd.local/v1/namespace/ducc_cf/config/admin/profiles/common?longPolling=60000&necessary=true";
 
-        //-- 线上预发
-        appName = "duccadmin";
-        token = "bd2f271319e349048853701b4dba2512";
-        subUri = "duccserver-yufa.ducc.svc.ht09.n.jd.local/v1/namespace/ducc_cf/config/admin/profiles/common?longPolling=60000&necessary=true";
 
 //        appName = "ky-ability";
 //        token = "91e46d8cd47d4207abfc9ea2db4f157a";
