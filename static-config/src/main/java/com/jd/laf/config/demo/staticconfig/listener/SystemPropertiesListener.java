@@ -5,10 +5,8 @@ import com.jd.laf.config.listener.ConfigurationListener;
 import org.springframework.stereotype.Component;
 
 /**
- * Title: todo <br>
- * <p/>
- * Description: todo
- * <p>
+ * 场景：创建一个监听器，获取配置文件数据（注意，不支持动态修改）<br>
+ *
  * company: <a href=www.jd.com>www.jd.com</a>
  *
  * @author <a href=mailto:yangzhiwei@jd.com>cf</a>

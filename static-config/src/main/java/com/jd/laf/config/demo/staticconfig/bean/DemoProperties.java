@@ -4,10 +4,10 @@ import com.jd.laf.config.spring.annotation.LafValue;
 import org.springframework.stereotype.Component;
 
 /**
- * Title: todo <br>
- * <p/>
- * Description: todo
- * <p>
+ * 场景，获取配置文件数据（注意，不支持动态修改）<br/>
+ *
+ * 模拟一个 spring bean 使用 {@link  LafValue} 注解注入配置文件里的 key <br>
+ *
  * company: <a href=www.jd.com>www.jd.com</a>
  *
  * @author <a href=mailto:yangzhiwei@jd.com>cf</a>
