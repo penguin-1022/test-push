@@ -73,7 +73,7 @@ public class DuccBean implements InitializingBean {
     /**
      * 监听 key：方式5<br>
      *
-     * 注： ducc sdk 版本要求 >= 1.4.1<br>
+     * 注： ducc sdk 版本要求 >= 1.4.2<br>
      *
      * 在 方法上使用 spring @{@link Value} 注解.<br>
      *
@@ -84,7 +84,7 @@ public class DuccBean implements InitializingBean {
     /**
      * 监听 key：方式5<br>
      *
-     * 注： ducc sdk 版本要求 >= 1.4.1<br>
+     * 注： ducc sdk 版本要求 >= 1.4.2<br>
      *
      * 在 方法上使用 spring @{@link Value} 注解.<br>
      *
@@ -143,7 +143,7 @@ public class DuccBean implements InitializingBean {
     }
 
     /**
-     * 注： ducc sdk 版本要求 >= 1.4.1
+     * 注： ducc sdk 版本要求 >= 1.4.2
      * @param duccConfig5
      */
     @LafUcc

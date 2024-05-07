@@ -19,7 +19,7 @@
         -->
         <!-- 下面是使用占位符方式设置 uri -->
         <laf-config:resource name="ucc_test" uri="${ducc.uri}"/>
-        <!-- useIncrementModel=true 表示使用增量模式，ducc sdk 需要升级到 1.4.1 或以上版本 -->
+        <!-- useIncrementModel=true 表示使用增量模式，ducc sdk 需要升级到 1.4.2 或以上版本 -->
         <laf-config:resource name="convert_type" uri="${ducc.uri.convertType}" useIncrementModel="false"/>
         <!-- 不推荐使用此方式： 因为 listener-field 标签的方式在注入配置比较滞后，可能比其它中间件如 jsf/jmq 配置加载晚-->
         <laf-config:listener-field key="ducc_key4" field="duccConfig4" beanName="duccBean"/>

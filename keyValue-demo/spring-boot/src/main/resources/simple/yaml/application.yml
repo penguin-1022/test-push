@@ -11,9 +11,6 @@ laf:
   config:
     manager:
       application: myapp_test
-      parameters[0]:
-        name: autoListener
-        value: true
       resources[0]:
         name: myapp_test0
         uri: ${app.ducc.uris.product[0]}
