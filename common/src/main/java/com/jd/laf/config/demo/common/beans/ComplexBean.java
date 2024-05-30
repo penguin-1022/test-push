@@ -49,7 +49,7 @@ public class ComplexBean implements InitializingBean {
      *     注： {@link JsonConverter#isSupportGeneric} 参数在 ducc sdk 1.2.0 及之后版本支持, 在 1.2.0 之前不支持泛型反序列化.
      */
     @LafValue("complex.userList")
-    @JsonConverter
+    @JsonConverter(isSupportGeneric = true)
     private List<User> userList;
 
     /**
@@ -58,7 +58,7 @@ public class ComplexBean implements InitializingBean {
      *     注： {@link JsonConverter#isSupportGeneric} 参数在 ducc sdk 1.2.0 及之后版本支持, 在 1.2.0 之前不支持泛型反序列化.
      */
     @LafValue("complex.userMap")
-    @JsonConverter
+    @JsonConverter(isSupportGeneric = true)
     private Map<String, User> userMap;
 
     /**
@@ -74,7 +74,7 @@ public class ComplexBean implements InitializingBean {
      *     注： {@link JsonConverter#isSupportGeneric} 参数在 ducc sdk 1.2.0 及之后版本支持, 在 1.2.0 之前不支持泛型反序列化.
      */
     @LafValue("complex.map.list")
-    @JsonConverter
+    @JsonConverter(isSupportGeneric = true)
     private Map<String, List<User>> userMapList;
 
     /**
@@ -150,7 +150,7 @@ public class ComplexBean implements InitializingBean {
     }
 
     @LafValue("complex.classList")
-    public void onClassListChanged(@JsonConverter List<StdClass> classList) {
+    public void onClassListChanged(@JsonConverter(isSupportGeneric = true) List<StdClass> classList) {
         this.classList = classList;
         LOGGER.info("classList: {}", classList);
     }
@@ -180,7 +180,7 @@ public class ComplexBean implements InitializingBean {
      * json 反序列化，说明： 和 {@link ComplexBean#userMapList} 类似
      */
     @LafValue("complex.map.list")
-    public void setUserMapList3(@JsonConverter Map<String, List<User>> userMapList3) {
+    public void setUserMapList3(@JsonConverter(isSupportGeneric = true) Map<String, List<User>> userMapList3) {
         this.userMapList3 = userMapList3;
     }
 

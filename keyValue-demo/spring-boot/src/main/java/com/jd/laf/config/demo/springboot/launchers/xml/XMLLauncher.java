@@ -62,7 +62,7 @@ public class XMLLauncher {
 
     @LafValue("endpoints.json")
     @JsonConverter
-    public void setEndpointListFromJson(@JsonConverter List<EndPoint> endPointList) {
+    public void setEndpointListFromJson(@JsonConverter(isSupportGeneric = true) List<EndPoint> endPointList) {
         endpointListFromJson = endPointList;
     }
 
