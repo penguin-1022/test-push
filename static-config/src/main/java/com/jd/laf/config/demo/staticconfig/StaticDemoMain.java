@@ -23,7 +23,6 @@ public class StaticDemoMain {
     public static void main(String args[]) {
         try {
             ConfigurableApplicationContext applicationContext = SpringApplication.run(StaticDemoMain.class, args);
-            ConfiguratorManager manager = ConfiguratorManager.getInstance();
             DemoProperties demoProperties = applicationContext.getBean(DemoProperties.class);
             SystemProperties systemProperties = applicationContext.getBean(SystemProperties.class);
 
