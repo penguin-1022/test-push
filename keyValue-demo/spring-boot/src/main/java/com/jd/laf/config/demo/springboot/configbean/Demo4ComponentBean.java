@@ -33,7 +33,7 @@ public class Demo4ComponentBean {
     private DateBean dateBean;
 
     @LafValue("datebean.list")
-    @JsonConverter
+    @JsonConverter(isSupportGeneric = true)
     private List<DateBean> dateBeanList;
 
     @LafValue("number.list")
@@ -43,7 +43,7 @@ public class Demo4ComponentBean {
     private String password;
 
     @LafValue("user.map")
-    @JsonConverter
+    @JsonConverter(isSupportGeneric = true)
     private Map<String, List<User>> userMap;
 
     public int getC1() {

@@ -1,9 +1,11 @@
 package com.jd.laf.config.demo.springboot.launchers.xml;
 
 import com.jd.laf.binding.annotation.JsonConverter;
+import com.jd.laf.binding.annotation.XmlConverter;
 import com.jd.laf.config.demo.common.beans.ComplexBean;
 import com.jd.laf.config.demo.common.beans.DuccBean;
 import com.jd.laf.config.demo.common.beans.DuccPrefixBean;
+import com.jd.laf.config.demo.common.beans.XmlBean;
 import com.jd.laf.config.demo.common.bo.EndPoint;
 import com.jd.laf.config.spring.annotation.LafValue;
 import org.slf4j.Logger;
@@ -50,6 +52,10 @@ public class XMLLauncher {
         return new DuccBean();
     }
 
+    @LafValue("XMLBean")
+    @XmlConverter
+    private XmlBean xmlBean;
+
     @Bean
     public ComplexBean complexBean() {
         return new ComplexBean();
@@ -62,7 +68,7 @@ public class XMLLauncher {
 
     @LafValue("endpoints.json")
     @JsonConverter
-    public void setEndpointListFromJson(@JsonConverter List<EndPoint> endPointList) {
+    public void setEndpointListFromJson(@JsonConverter(isSupportGeneric = true) List<EndPoint> endPointList) {
         endpointListFromJson = endPointList;
     }
 
@@ -81,6 +87,7 @@ public class XMLLauncher {
                 LOGGER.info("duccBean, hashCode：{} : {}", duccBean.hashCode(), duccBean);
                 LOGGER.info("complexBean, hashCode：{} : {}", complexBean.hashCode(), complexBean);
                 LOGGER.info("endPointList from array: {}", starter.endpointListFromArray);
+                LOGGER.info("xmlBean from array: {}", starter.xmlBean);
                 LOGGER.info("endPointList from json: {}", starter.endpointListFromJson);
                 Thread.sleep(2000L);
             }
