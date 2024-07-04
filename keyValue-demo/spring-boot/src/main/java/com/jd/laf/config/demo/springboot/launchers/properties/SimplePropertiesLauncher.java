@@ -55,13 +55,13 @@ public class SimplePropertiesLauncher {
     }
 
     @LafValue("endpoints.array")
+    @JsonConverter(isSupportGeneric = true)
     public List<EndPoint> endpointListFromArray;
 
     public List<EndPoint> endpointListFromJson;
 
     @LafValue("endpoints.json")
-    @JsonConverter
-    public void setEndpointListFromJson(@JsonConverter List<EndPoint> endPointList) {
+    public void setEndpointListFromJson(@JsonConverter(isSupportGeneric = true) List<EndPoint> endPointList) {
         endpointListFromJson = endPointList;
     }
 
